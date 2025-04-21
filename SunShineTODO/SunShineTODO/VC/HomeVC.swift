@@ -100,7 +100,7 @@ extension HomeVC : UITextFieldDelegate{
             tblTasks.dataItems = TaskManager.shared.taskData
         }else{
             
-            let filteredTasks = TaskManager.shared.taskData.filter({ $0.title.contains(latestString) })
+            let filteredTasks = TaskManager.shared.taskData.filter({ $0.title.lowercased().contains(latestString.lowercased()) })
             
             tblTasks.dataItems = filteredTasks
         }
