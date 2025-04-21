@@ -39,7 +39,7 @@ class TaskBuilder {
     
     func build() throws -> TaskDataModel{
         
-        guard let title else {
+        guard let title, title != "" else {
             throw BuildErrors.invalidTitle
         }
         

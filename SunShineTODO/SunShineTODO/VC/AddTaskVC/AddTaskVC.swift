@@ -118,8 +118,9 @@ extension AddTaskVC {
             didAddedTaskSuccessfully?()
             removeChildVC(self)
             
-        }catch /*let error */{
-            
+        }catch let error {
+            guard let error = error as? ErrorProtocol else { return }
+            Toast.show(error.recoverySuggestion ?? "Some thing went wrong.")
             
         }
         

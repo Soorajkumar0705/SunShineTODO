@@ -16,14 +16,9 @@ class Toast{
         hide()
         guard let activeVC = AppDelegate.getAppDelegateRef()?.getActiveVC() else { return }
         
-        let toastView = ToastMessageView()
+        let toastView = ToastMessageView(message: message, bottomMargin: bottomMargin ?? 20.0)
         
         toastView.alpha = 0
-        toastView.message = message
-        
-        if let bottomMargin{
-            toastView.bottomMargin = bottomMargin
-        }
         
         activeVC.showPopUpView(toastView)
         self.toastView = toastView
