@@ -155,7 +155,7 @@
                                                             <constraint firstItem="76k-yP-Dn2" firstAttribute="centerX" secondItem="KBX-1k-N3X" secondAttribute="centerX" id="zkE-lm-kmW"/>
                                                         </constraints>
                                                     </view>
-                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wC4-fW-U8e" customClass="TaskTableView" customModule="SunShineTODO" customModuleProvider="target">
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wC4-fW-U8e" customClass="TaskTableView" customModule="SunShineTODO" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="632" width="393" height="0.0"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     </tableView>
@@ -620,14 +620,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XH8-oL-CLd" customClass="CornerRadiusView" customModule="Kado" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XH8-oL-CLd" customClass="CornerRadiusView" customModule="SunShineTODO" customModuleProvider="target">
                                 <rect key="frame" x="40" y="213.66666666666663" width="313" height="425"/>
                                 <subviews>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="Rxm-2r-AbT">
                                         <rect key="frame" x="0.0" y="0.0" width="313" height="366"/>
                                         <color key="tintColor" name="00E9D3"/>
                                     </datePicker>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lW5-PD-Hhy" customClass="CornerRadiusButton" customModule="Kado" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lW5-PD-Hhy" customClass="CornerRadiusButton" customModule="SunShineTODO" customModuleProvider="target">
                                         <rect key="frame" x="229" y="366" width="71" height="34"/>
                                         <color key="backgroundColor" name="00E9D3"/>
                                         <constraints>

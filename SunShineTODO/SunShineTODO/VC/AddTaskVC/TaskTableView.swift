@@ -10,7 +10,7 @@ import UIKit
 class TaskTableView: UITableView , UITableViewDataSource, UITableViewDelegate{
     
     typealias DataItemType = TaskDataModel
-    typealias CELLType = UITableViewCell
+    typealias CELLType = TaskTBLCell
     typealias CellConfigureType = (IndexPath, DataItemType, CELLType) -> Void
     
     
@@ -33,6 +33,10 @@ class TaskTableView: UITableView , UITableViewDataSource, UITableViewDelegate{
         
         dataSource = self
         delegate = self
+        
+        self.contentInset.top = 20
+        self.contentInset.bottom = 50
+        self.showsVerticalScrollIndicator = false
     }
     
     
@@ -43,7 +47,12 @@ class TaskTableView: UITableView , UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        UITableViewCell()
+        
+        let cell : CELLType = tableView.dequeueReusableCell(for: indexPath)
+        
+        cell.dataItem = dataItems[indexPath.row]
+        
+        return cell
     }
     
 }

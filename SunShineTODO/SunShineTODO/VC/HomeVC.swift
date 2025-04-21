@@ -7,6 +7,15 @@
 
 import UIKit
 
+let dataSource = [
+    
+    TaskDataModel(title: "Suraj", dueDate: Date.now, priority: .low, createdAt: Date.now),
+    TaskDataModel(title: "Govind", dueDate: Date.now, priority: .low, createdAt: Date.now),
+    TaskDataModel(title: "Sreeraj", dueDate: Date.now, priority: .low, createdAt: Date.now),
+    TaskDataModel(title: "Arti", dueDate: Date.now, priority: .low, createdAt: Date.now),
+    TaskDataModel(title: "Harsh", dueDate: Date.now, priority: .low, createdAt: Date.now),
+    
+]
 
 class HomeVC : UIViewController, StoryboardBased {
     
@@ -43,6 +52,7 @@ class HomeVC : UIViewController, StoryboardBased {
                 tblTasks.isHidden = true
             }
         }
+        tblTasks.configure(with: dataSource)
         
     }
     
