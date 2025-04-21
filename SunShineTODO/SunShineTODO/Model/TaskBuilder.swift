@@ -49,9 +49,11 @@ class TaskBuilder {
         
         return TaskDataModel(
             title: title,
-            dueDate: dueDate,
             taskDetails: taskDetails,
+            dueDate: dueDate,
             priority: priority,
+            isFavorite: false,
+            isCompleted: false,
             createdAt: Date()
         )
     }

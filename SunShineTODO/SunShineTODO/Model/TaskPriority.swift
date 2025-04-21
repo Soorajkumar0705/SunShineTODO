@@ -6,7 +6,7 @@
 //
 
 
-enum TaskPriority : String, CaseIterable{
+enum TaskPriority : String, CaseIterable, Codable{
     
     case low = "Low"
     case medium = "Medium"

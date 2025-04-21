@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B0F746A52DB6B3CE000D1244 /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F746A42DB6B3CE000D1244 /* TaskManager.swift */; };
 		E13DE1D42DB3D1F400ECDD8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13DE1CA2DB3D1F400ECDD8D /* AppDelegate.swift */; };
 		E13DE1D72DB3D1F400ECDD8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E13DE1CB2DB3D1F400ECDD8D /* Assets.xcassets */; };
 		E13DE1D92DB3D1F400ECDD8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E13DE1CE2DB3D1F400ECDD8D /* LaunchScreen.storyboard */; };
@@ -124,6 +125,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B0F746A42DB6B3CE000D1244 /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
 		E13DE1962DB3D1EC00ECDD8D /* SunShineTODO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SunShineTODO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E13DE1AC2DB3D1ED00ECDD8D /* SunShineTODOTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SunShineTODOTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E13DE1B62DB3D1ED00ECDD8D /* SunShineTODOUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SunShineTODOUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -265,6 +267,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B0F746A32DB6B3C4000D1244 /* TaskManager */ = {
+			isa = PBXGroup;
+			children = (
+				B0F746A42DB6B3CE000D1244 /* TaskManager.swift */,
+			);
+			path = TaskManager;
+			sourceTree = "<group>";
+		};
 		E13DE18D2DB3D1EC00ECDD8D = {
 			isa = PBXGroup;
 			children = (
@@ -477,6 +487,7 @@
 				E13DE20B2DB3D32A00ECDD8D /* APIHandler */,
 				E13DE20E2DB3D32A00ECDD8D /* NetworkReachability */,
 				E13DE2122DB3D32A00ECDD8D /* PermissionHandlerStore */,
+				B0F746A32DB6B3C4000D1244 /* TaskManager */,
 			);
 			path = AppHandlers;
 			sourceTree = "<group>";
@@ -825,6 +836,7 @@
 				E13DE2832DB3D38300ECDD8D /* OtherExtensions.swift in Sources */,
 				E13DE2842DB3D38300ECDD8D /* Logger+Extensions.swift in Sources */,
 				E13DE2852DB3D38300ECDD8D /* ClassNameLoggable.swift in Sources */,
+				B0F746A52DB6B3CE000D1244 /* TaskManager.swift in Sources */,
 				E13DE2862DB3D38300ECDD8D /* AttributedStringBuilder.swift in Sources */,
 				E13DE2872DB3D38300ECDD8D /* Storage.swift in Sources */,
 				E13DE2882DB3D38300ECDD8D /* BundleProtocol.swift in Sources */,

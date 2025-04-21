@@ -21,6 +21,8 @@ class AddTaskVC : UIViewController, StoryboardBased {
     let taskDetailsPlaceholder = "Details (optional)..."
     var builder : TaskBuilder?
     
+    var didAddedTaskSuccessfully : (() -> Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         presentVCWithAnimation()
@@ -51,7 +53,13 @@ class AddTaskVC : UIViewController, StoryboardBased {
         
         vc.didSelectedDate = { [weak self] selectedDate in
             guard let self else { return }
-            lblSelectedDueDate.text = selectedDate.formatted()
+            
+            let formatter = DateFormatter()
+            formatter.dateFormat = "d MMMM yyyy, h:mm a"
+            let formattedDate = formatter.string(from: selectedDate)
+            
+            lblSelectedDueDate.text = formattedDate
+            
             _=builder?.setDueDate(selectedDate)
         }
         
@@ -105,9 +113,12 @@ extension AddTaskVC {
             
             let task = try builder!.build()
             
+            TaskManager.shared.addTask(taskData: task)
             
+            didAddedTaskSuccessfully?()
+            removeChildVC(self)
             
-        }catch let error {
+        }catch /*let error */{
             
             
         }

@@ -22,6 +22,9 @@ class TaskTableView: UITableView , UITableViewDataSource, UITableViewDelegate{
         }
     }
     
+    var selectedIndexPath : IndexPath?
+    var didClickMoreOptions: (() -> Void)?
+    
     var didReloadTableView : VoidClosure?
     
     func configure(with dataItems : [DataItemType] = []) {
@@ -37,6 +40,12 @@ class TaskTableView: UITableView , UITableViewDataSource, UITableViewDelegate{
         self.contentInset.top = 20
         self.contentInset.bottom = 50
         self.showsVerticalScrollIndicator = false
+        
+        NotificationCenter.default.addObserver(forName: .reloadData, object: nil, queue: .main, using: { [weak self] _ in
+            guard let self else { return }
+            self.dataItems = TaskManager.shared.taskData
+            self.reloadData()
+        })
     }
     
     
@@ -51,6 +60,18 @@ class TaskTableView: UITableView , UITableViewDataSource, UITableViewDelegate{
         let cell : CELLType = tableView.dequeueReusableCell(for: indexPath)
         
         cell.dataItem = dataItems[indexPath.row]
+        
+        cell.onClickMoreOptions = {  [weak self] in
+            guard let self else { return }
+            selectedIndexPath = indexPath
+            didClickMoreOptions?()
+        }
+        
+        
+        cell.onClickFavUnFavTask = {  [weak self] in
+            guard let _ = self else { return }
+            
+        }
         
         return cell
     }

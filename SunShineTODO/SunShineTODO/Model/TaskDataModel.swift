@@ -8,11 +8,23 @@
 import Foundation
 
 
-struct TaskDataModel {
+struct TaskDataModel : Codable, Equatable{
  
     var title : String
-    var dueDate : Date
     var taskDetails: String?
+    var dueDate : Date
     var priority: TaskPriority
+    var isFavorite: Bool
+    var isCompleted: Bool
     var createdAt: Date
+    
+    static func == (lhs: TaskDataModel, rhs: TaskDataModel) -> Bool {
+        return (
+            lhs.title == rhs.title &&
+            lhs.dueDate == rhs.dueDate &&
+            lhs.priority == rhs.priority &&
+            lhs.isFavorite == rhs.isFavorite &&
+            lhs.isCompleted == rhs.isCompleted
+        )
+    }
 }

@@ -19,5 +19,8 @@ enum UDStorageKey: String, CaseIterable {
     case isProfileCreated = "isProfileCreated"
     
     
+    case taskData
+    
+    
 }
 
