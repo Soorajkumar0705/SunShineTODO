@@ -59,7 +59,7 @@ extension APIEndpointEnumType {
     }
     
     var versionURL: String {
-        "api/v1/"
+        ""
     }
     
 }

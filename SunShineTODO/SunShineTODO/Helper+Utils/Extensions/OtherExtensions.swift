@@ -18,6 +18,10 @@ extension Int {
         String(self)
     }
     
+    func isTrue() -> Bool {
+        self != 0
+    }
+    
 }
 
 

@@ -18,8 +18,9 @@ class AddTaskVC : UIViewController, StoryboardBased {
     
     
     
-    let taskDetailsPlaceholder = "Details (optional)..."
-    var builder : TaskBuilder?
+    let taskDetailsPlaceholder = "Task Details..."
+    var builder : CreateToDoRequestBuilder?
+    var taskManager : TaskAPIManager?
     
     var didAddedTaskSuccessfully : (() -> Void)?
     
@@ -28,7 +29,9 @@ class AddTaskVC : UIViewController, StoryboardBased {
         presentVCWithAnimation()
         updateUI()
         
-        builder = TaskBuilder()
+        builder = CreateToDoRequestBuilder()
+        taskManager = TaskAPIManager(apiService: APIServiceFactory().makeAPIService())
+        taskManager?.delegate = self
     }
     
     private func updateUI(){
@@ -108,25 +111,38 @@ extension AddTaskVC {
         if taskDetailsPlaceholder != txtDescription.text{
             _=builder?.setTaskDetails(txtDescription.text)
         }
-        
-        do{
-            
-            let task = try builder!.build()
-            
-            TaskManager.shared.addTask(taskData: task)
-            
-            didAddedTaskSuccessfully?()
-            removeChildVC(self)
-            
-        }catch let error {
-            guard let error = error as? ErrorProtocol else { return }
-            Toast.show(error.recoverySuggestion ?? "Some thing went wrong.")
-            
-        }
-        
+        taskManager?.createToDoTask(task: builder!)
+
     }
     
 }
+
+extension AddTaskVC : TaskAPIManagerDelegate {
+    
+    func didRecieveTodoListDataResponse() {
+        
+    }
+    
+    func didRecieveCreateToDoResponse() {
+        DispatchQueue.main.async {  [weak self] in
+            guard let self else { return }
+            
+            didAddedTaskSuccessfully?()
+            removeChildVC(self)
+        }
+    }
+    
+    func didRecievUpdateTodoRespobse() {
+        
+    }
+    
+    func didRecieveDeleteToDoResponse() {
+        
+    }
+
+    
+}
+
 
 extension AddTaskVC {
     

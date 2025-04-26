@@ -19,7 +19,8 @@ class AuthenticationHandler : LaunchFlow {
 
     @Storage(key: .isSignIn, defaultValue: false) var isSignedIn: Bool
     @Storage(key: .sessionToken, defaultValue: "") var sessionToken: String
-    @Storage(key: .userId, defaultValue: -1) var userId: Int
+    
+//    @Storage(key: .userId, defaultValue: -1) var userData: User
     
     
   
@@ -35,7 +36,6 @@ class AuthenticationHandler : LaunchFlow {
         
         isSignedIn = false
         sessionToken = ""
-        userId = 0
         ImageCacheManager.shared.clearCache()
     }
     

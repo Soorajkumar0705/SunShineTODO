@@ -7,7 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B0F746A52DB6B3CE000D1244 /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F746A42DB6B3CE000D1244 /* TaskManager.swift */; };
+		B0981B7C2DB80EF60036C795 /* SignUpORSignInScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0981B7B2DB80EF60036C795 /* SignUpORSignInScreenVC.swift */; };
+		B0A011D72DBC9C0700BBD4DF /* AuthenticationEndPointEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A011D62DBC9C0700BBD4DF /* AuthenticationEndPointEnum.swift */; };
+		B0A011DA2DBCA28900BBD4DF /* SignUpORSignInScreenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A011D92DBCA28900BBD4DF /* SignUpORSignInScreenVM.swift */; };
+		B0A011DD2DBCAFC500BBD4DF /* TaskAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A011DC2DBCAFC500BBD4DF /* TaskAPIManager.swift */; };
+		B0A011E02DBCB31800BBD4DF /* ToDoEndPointEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A011DF2DBCB31800BBD4DF /* ToDoEndPointEnum.swift */; };
+		B0A011E22DBCB7C900BBD4DF /* ToDoTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A011E12DBCB7C900BBD4DF /* ToDoTask.swift */; };
+		B0A011E42DBCB83E00BBD4DF /* CreateToDoResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A011E32DBCB83E00BBD4DF /* CreateToDoResponseModel.swift */; };
+		B0A011E62DBCBB0B00BBD4DF /* CreateToDoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A011E52DBCBB0B00BBD4DF /* CreateToDoRequest.swift */; };
+		B0A011E92DBCC94B00BBD4DF /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A011E82DBCC94B00BBD4DF /* SideMenuVC.swift */; };
 		E13DE1D42DB3D1F400ECDD8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13DE1CA2DB3D1F400ECDD8D /* AppDelegate.swift */; };
 		E13DE1D72DB3D1F400ECDD8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E13DE1CB2DB3D1F400ECDD8D /* Assets.xcassets */; };
 		E13DE1D92DB3D1F400ECDD8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E13DE1CE2DB3D1F400ECDD8D /* LaunchScreen.storyboard */; };
@@ -97,7 +105,6 @@
 		E13DE2A62DB3D4FF00ECDD8D /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13DE2A52DB3D4FF00ECDD8D /* LoaderView.swift */; };
 		E13DE2AA2DB3DC9800ECDD8D /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13DE2A92DB3DC9800ECDD8D /* HomeVC.swift */; };
 		E13DE2AC2DB3FDFC00ECDD8D /* AddTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13DE2AB2DB3FDFC00ECDD8D /* AddTaskVC.swift */; };
-		E1AA8F6E2DB51C6F00366671 /* TaskDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AA8F6D2DB51C6F00366671 /* TaskDataModel.swift */; };
 		E1AA8F712DB51DDD00366671 /* TaskPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AA8F702DB51DDD00366671 /* TaskPriority.swift */; };
 		E1AA8F732DB51E0700366671 /* TaskBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AA8F722DB51E0700366671 /* TaskBuilder.swift */; };
 		E1AA8F752DB5280300366671 /* DateSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AA8F742DB527AB00366671 /* DateSelectionVC.swift */; };
@@ -125,7 +132,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B0F746A42DB6B3CE000D1244 /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
+		B0981B7B2DB80EF60036C795 /* SignUpORSignInScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpORSignInScreenVC.swift; sourceTree = "<group>"; };
+		B0A011D62DBC9C0700BBD4DF /* AuthenticationEndPointEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationEndPointEnum.swift; sourceTree = "<group>"; };
+		B0A011D92DBCA28900BBD4DF /* SignUpORSignInScreenVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpORSignInScreenVM.swift; sourceTree = "<group>"; };
+		B0A011DC2DBCAFC500BBD4DF /* TaskAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskAPIManager.swift; sourceTree = "<group>"; };
+		B0A011DF2DBCB31800BBD4DF /* ToDoEndPointEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoEndPointEnum.swift; sourceTree = "<group>"; };
+		B0A011E12DBCB7C900BBD4DF /* ToDoTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTask.swift; sourceTree = "<group>"; };
+		B0A011E32DBCB83E00BBD4DF /* CreateToDoResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToDoResponseModel.swift; sourceTree = "<group>"; };
+		B0A011E52DBCBB0B00BBD4DF /* CreateToDoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToDoRequest.swift; sourceTree = "<group>"; };
+		B0A011E82DBCC94B00BBD4DF /* SideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
 		E13DE1962DB3D1EC00ECDD8D /* SunShineTODO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SunShineTODO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E13DE1AC2DB3D1ED00ECDD8D /* SunShineTODOTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SunShineTODOTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E13DE1B62DB3D1ED00ECDD8D /* SunShineTODOUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SunShineTODOUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -219,7 +234,6 @@
 		E13DE2A52DB3D4FF00ECDD8D /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		E13DE2A92DB3DC9800ECDD8D /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		E13DE2AB2DB3FDFC00ECDD8D /* AddTaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskVC.swift; sourceTree = "<group>"; };
-		E1AA8F6D2DB51C6F00366671 /* TaskDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDataModel.swift; sourceTree = "<group>"; };
 		E1AA8F702DB51DDD00366671 /* TaskPriority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskPriority.swift; sourceTree = "<group>"; };
 		E1AA8F722DB51E0700366671 /* TaskBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskBuilder.swift; sourceTree = "<group>"; };
 		E1AA8F742DB527AB00366671 /* DateSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectionVC.swift; sourceTree = "<group>"; };
@@ -267,10 +281,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B0981B702DB80E170036C795 /* SignUpORSignInScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B0981B7B2DB80EF60036C795 /* SignUpORSignInScreenVC.swift */,
+				B0A011D92DBCA28900BBD4DF /* SignUpORSignInScreenVM.swift */,
+			);
+			path = SignUpORSignInScreen;
+			sourceTree = "<group>";
+		};
+		B0981B752DB80E170036C795 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				B0981B702DB80E170036C795 /* SignUpORSignInScreen */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		B0A011D82DBC9C0D00BBD4DF /* EndPoints */ = {
+			isa = PBXGroup;
+			children = (
+				B0A011D62DBC9C0700BBD4DF /* AuthenticationEndPointEnum.swift */,
+				B0A011DF2DBCB31800BBD4DF /* ToDoEndPointEnum.swift */,
+			);
+			path = EndPoints;
+			sourceTree = "<group>";
+		};
+		B0A011DB2DBCAF5C00BBD4DF /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E13DE2A92DB3DC9800ECDD8D /* HomeVC.swift */,
+				E1AA8F762DB5459200366671 /* TaskTableView.swift */,
+				E1AA8F782DB5495800366671 /* TaskTBLCell */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B0A011E72DBCC93800BBD4DF /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				B0A011E82DBCC94B00BBD4DF /* SideMenuVC.swift */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
 		B0F746A32DB6B3C4000D1244 /* TaskManager */ = {
 			isa = PBXGroup;
 			children = (
-				B0F746A42DB6B3CE000D1244 /* TaskManager.swift */,
+				B0A011DC2DBCAFC500BBD4DF /* TaskAPIManager.swift */,
+				B0A011E52DBCBB0B00BBD4DF /* CreateToDoRequest.swift */,
+				B0A011E32DBCB83E00BBD4DF /* CreateToDoResponseModel.swift */,
+				B0A011E12DBCB7C900BBD4DF /* ToDoTask.swift */,
+				E1AA8F722DB51E0700366671 /* TaskBuilder.swift */,
+				E1AA8F702DB51DDD00366671 /* TaskPriority.swift */,
 			);
 			path = TaskManager;
 			sourceTree = "<group>";
@@ -300,11 +363,11 @@
 			children = (
 				E13DE1DB2DB3D1FD00ECDD8D /* LifeCycle */,
 				E13DE2142DB3D32A00ECDD8D /* LaunchFlow */,
+				B0A011D82DBC9C0D00BBD4DF /* EndPoints */,
+				B0F746A32DB6B3C4000D1244 /* TaskManager */,
 				E13DE2702DB3D38300ECDD8D /* Helper+Utils */,
 				E13DE1DC2DB3D20800ECDD8D /* VC */,
 				E1AA8F742DB527AB00366671 /* DateSelectionVC.swift */,
-				E13DE1DD2DB3D20E00ECDD8D /* VM */,
-				E1AA8F6F2DB51DD000366671 /* Model */,
 				E13DE2A72DB3D63F00ECDD8D /* StoryBoard */,
 				E13DE2A82DB3D65700ECDD8D /* Ext Resource */,
 				E13DE1CC2DB3D1F400ECDD8D /* Info.plist */,
@@ -324,17 +387,12 @@
 		E13DE1DC2DB3D20800ECDD8D /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				E13DE2A92DB3DC9800ECDD8D /* HomeVC.swift */,
+				B0981B752DB80E170036C795 /* Auth */,
+				B0A011DB2DBCAF5C00BBD4DF /* Home */,
+				B0A011E72DBCC93800BBD4DF /* SideMenu */,
 				E1AA8F6C2DB51C2200366671 /* AddTaskVC */,
 			);
 			path = VC;
-			sourceTree = "<group>";
-		};
-		E13DE1DD2DB3D20E00ECDD8D /* VM */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = VM;
 			sourceTree = "<group>";
 		};
 		E13DE1E42DB3D32A00ECDD8D /* AppNavigationCoordinator */ = {
@@ -487,7 +545,6 @@
 				E13DE20B2DB3D32A00ECDD8D /* APIHandler */,
 				E13DE20E2DB3D32A00ECDD8D /* NetworkReachability */,
 				E13DE2122DB3D32A00ECDD8D /* PermissionHandlerStore */,
-				B0F746A32DB6B3C4000D1244 /* TaskManager */,
 			);
 			path = AppHandlers;
 			sourceTree = "<group>";
@@ -640,20 +697,8 @@
 			isa = PBXGroup;
 			children = (
 				E13DE2AB2DB3FDFC00ECDD8D /* AddTaskVC.swift */,
-				E1AA8F762DB5459200366671 /* TaskTableView.swift */,
-				E1AA8F782DB5495800366671 /* TaskTBLCell */,
 			);
 			path = AddTaskVC;
-			sourceTree = "<group>";
-		};
-		E1AA8F6F2DB51DD000366671 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				E1AA8F6D2DB51C6F00366671 /* TaskDataModel.swift */,
-				E1AA8F702DB51DDD00366671 /* TaskPriority.swift */,
-				E1AA8F722DB51E0700366671 /* TaskBuilder.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		E1AA8F782DB5495800366671 /* TaskTBLCell */ = {
@@ -811,7 +856,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E13DE2152DB3D32A00ECDD8D /* APISuccessResponseModel.swift in Sources */,
-				E1AA8F6E2DB51C6F00366671 /* TaskDataModel.swift in Sources */,
+				B0981B7C2DB80EF60036C795 /* SignUpORSignInScreenVC.swift in Sources */,
 				E13DE2162DB3D32A00ECDD8D /* ResponseHandlerType.swift in Sources */,
 				E13DE2172DB3D32A00ECDD8D /* NetworHandlerError.swift in Sources */,
 				E13DE2A62DB3D4FF00ECDD8D /* LoaderView.swift in Sources */,
@@ -821,6 +866,7 @@
 				E13DE2722DB3D38300ECDD8D /* Constant.swift in Sources */,
 				E13DE2732DB3D38300ECDD8D /* DefaultAPICallErrorHandling.swift in Sources */,
 				E13DE2742DB3D38300ECDD8D /* UIKit+Preview.swift in Sources */,
+				B0A011E02DBCB31800BBD4DF /* ToDoEndPointEnum.swift in Sources */,
 				E13DE2752DB3D38300ECDD8D /* KeyboardCustomToolBarType.swift in Sources */,
 				E13DE2762DB3D38300ECDD8D /* PlaceholderHandlerTextView.swift in Sources */,
 				E13DE2772DB3D38300ECDD8D /* Date+Extension.swift in Sources */,
@@ -836,16 +882,17 @@
 				E13DE2832DB3D38300ECDD8D /* OtherExtensions.swift in Sources */,
 				E13DE2842DB3D38300ECDD8D /* Logger+Extensions.swift in Sources */,
 				E13DE2852DB3D38300ECDD8D /* ClassNameLoggable.swift in Sources */,
-				B0F746A52DB6B3CE000D1244 /* TaskManager.swift in Sources */,
 				E13DE2862DB3D38300ECDD8D /* AttributedStringBuilder.swift in Sources */,
 				E13DE2872DB3D38300ECDD8D /* Storage.swift in Sources */,
 				E13DE2882DB3D38300ECDD8D /* BundleProtocol.swift in Sources */,
 				E13DE2892DB3D38300ECDD8D /* JSONContainer.swift in Sources */,
 				E13DE28A2DB3D38300ECDD8D /* TableViewHandlerType.swift in Sources */,
 				E13DE28B2DB3D38300ECDD8D /* UIView+Extension.swift in Sources */,
+				B0A011D72DBC9C0700BBD4DF /* AuthenticationEndPointEnum.swift in Sources */,
 				E13DE28C2DB3D38300ECDD8D /* CustomTextViewDelegate.swift in Sources */,
 				E13DE28D2DB3D38300ECDD8D /* NibLoadable.swift in Sources */,
 				E13DE28E2DB3D38300ECDD8D /* Reusable.swift in Sources */,
+				B0A011E92DBCC94B00BBD4DF /* SideMenuVC.swift in Sources */,
 				E1AA8F732DB51E0700366671 /* TaskBuilder.swift in Sources */,
 				E13DE28F2DB3D38300ECDD8D /* Loader.swift in Sources */,
 				E13DE2902DB3D38300ECDD8D /* UIStoryboard+Extension.swift in Sources */,
@@ -869,6 +916,8 @@
 				E1AA8F752DB5280300366671 /* DateSelectionVC.swift in Sources */,
 				E13DE21C2DB3D32A00ECDD8D /* MultipartFormDataBuilder.swift in Sources */,
 				E13DE21D2DB3D32A00ECDD8D /* CommonAPIRes.swift in Sources */,
+				B0A011E22DBCB7C900BBD4DF /* ToDoTask.swift in Sources */,
+				B0A011DD2DBCAFC500BBD4DF /* TaskAPIManager.swift in Sources */,
 				E13DE21E2DB3D32A00ECDD8D /* APIFieldValidationErrorResponseModel.swift in Sources */,
 				E13DE21F2DB3D32A00ECDD8D /* NetworkHandlerFactory.swift in Sources */,
 				E13DE2202DB3D32A00ECDD8D /* RequestFactoryType.swift in Sources */,
@@ -876,11 +925,13 @@
 				E13DE2222DB3D32A00ECDD8D /* APIFailureResponseModel.swift in Sources */,
 				E13DE2232DB3D32A00ECDD8D /* ResponseHandlerFactory.swift in Sources */,
 				E13DE2242DB3D32A00ECDD8D /* NetworkReachability.swift in Sources */,
+				B0A011E62DBCBB0B00BBD4DF /* CreateToDoRequest.swift in Sources */,
 				E13DE2252DB3D32A00ECDD8D /* HTTPMethod.swift in Sources */,
 				E13DE2262DB3D32A00ECDD8D /* PermissionHandler.swift in Sources */,
 				E13DE2272DB3D32A00ECDD8D /* AppNavigationCoordinator.swift in Sources */,
 				E13DE2282DB3D32A00ECDD8D /* NetworkReachabilityHandler.swift in Sources */,
 				E1AA8F772DB5459200366671 /* TaskTableView.swift in Sources */,
+				B0A011DA2DBCA28900BBD4DF /* SignUpORSignInScreenVM.swift in Sources */,
 				E1AA8F7E2DB54A0800366671 /* UITableViewCell+Extension.swift in Sources */,
 				E13DE2292DB3D32A00ECDD8D /* NetworkHandler.swift in Sources */,
 				E13DE2AA2DB3DC9800ECDD8D /* HomeVC.swift in Sources */,
@@ -888,6 +939,7 @@
 				E13DE22B2DB3D32A00ECDD8D /* ResponseModelProtocols.swift in Sources */,
 				E13DE22C2DB3D32A00ECDD8D /* MicrophonePermissionHandler.swift in Sources */,
 				E13DE22D2DB3D32A00ECDD8D /* HTTPHeaderFieldValues.swift in Sources */,
+				B0A011E42DBCB83E00BBD4DF /* CreateToDoResponseModel.swift in Sources */,
 				E13DE22E2DB3D32A00ECDD8D /* NetworkHandlerType.swift in Sources */,
 				E13DE22F2DB3D32A00ECDD8D /* CameraPermissionHandler.swift in Sources */,
 				E13DE2302DB3D32A00ECDD8D /* LaunchFlowFactory.swift in Sources */,

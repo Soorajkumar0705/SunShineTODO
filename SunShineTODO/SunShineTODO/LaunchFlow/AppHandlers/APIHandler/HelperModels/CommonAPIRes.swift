@@ -7,9 +7,9 @@
 
 struct CommonAPIRes : ParsableResponseModel{
     
-    var isError: Bool
-    var message: String
-    var pageCount: Int
+    var isError: Bool?
+    var message: String?
+    var pageCount: Int?
     
     enum CodingKeys: String, CodingKey {
         case isError = "is_error"

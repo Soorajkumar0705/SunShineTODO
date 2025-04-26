@@ -64,11 +64,14 @@ class AppNavigationCoordinator : AppNavigationCoordinatorType{
     
     
     func start() {
-        
-        let _/*authHandler*/ = AuthenticationHandler.shared
 
         let vc : UIViewController =
-        HomeVC.instantiate(from: .main)
+        
+        if AuthenticationHandler.shared.isSignedIn {
+            HomeVC.instantiate(from: .main)
+        }else{
+            SignUpORSignInScreenVCFactory().makeVC(isSignUp: false)
+        }
         
         setRootVC(vc)
         

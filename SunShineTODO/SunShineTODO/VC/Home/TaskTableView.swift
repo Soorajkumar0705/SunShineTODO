@@ -9,7 +9,7 @@ import UIKit
 
 class TaskTableView: UITableView , UITableViewDataSource, UITableViewDelegate{
     
-    typealias DataItemType = TaskDataModel
+    typealias DataItemType = ToDoTask
     typealias CELLType = TaskTBLCell
     typealias CellConfigureType = (IndexPath, DataItemType, CELLType) -> Void
     
@@ -23,7 +23,8 @@ class TaskTableView: UITableView , UITableViewDataSource, UITableViewDelegate{
     }
     
     var selectedIndexPath : IndexPath?
-    var didClickMoreOptions: (() -> Void)?
+    var didClickMoreOptions: ((IndexPath) -> Void)?
+    var didClickFavoriteTodo: ((IndexPath) -> Void)?
     
     var didReloadTableView : VoidClosure?
     
@@ -41,11 +42,6 @@ class TaskTableView: UITableView , UITableViewDataSource, UITableViewDelegate{
         self.contentInset.bottom = 50
         self.showsVerticalScrollIndicator = false
         
-        NotificationCenter.default.addObserver(forName: .reloadData, object: nil, queue: .main, using: { [weak self] _ in
-            guard let self else { return }
-            self.dataItems = TaskManager.shared.taskData
-            self.reloadData()
-        })
     }
     
     
@@ -64,13 +60,14 @@ class TaskTableView: UITableView , UITableViewDataSource, UITableViewDelegate{
         cell.onClickMoreOptions = {  [weak self] in
             guard let self else { return }
             selectedIndexPath = indexPath
-            didClickMoreOptions?()
+            didClickMoreOptions?(indexPath)
         }
         
         
         cell.onClickFavUnFavTask = {  [weak self] in
-            guard let _ = self else { return }
-            
+            guard let self else { return }
+            selectedIndexPath = indexPath
+            didClickFavoriteTodo?(indexPath)
         }
         
         return cell

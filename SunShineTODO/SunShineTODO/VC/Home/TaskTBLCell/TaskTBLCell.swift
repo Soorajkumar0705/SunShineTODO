@@ -9,7 +9,7 @@ import UIKit
 
 class TaskTBLCell: UITableViewCell, NibReusable {
 
-    typealias DataItemType = TaskDataModel
+    typealias DataItemType = ToDoTask
     
     @IBOutlet private weak var lblName : UILabel!
     @IBOutlet private weak var lblDescription : UILabel!
@@ -40,8 +40,8 @@ class TaskTBLCell: UITableViewCell, NibReusable {
     private func updateUIWithData(){
         lblName.text = dataItem.title
         
-        if let taskDetails = dataItem.taskDetails {
-            lblDescription.text = taskDetails
+        if dataItem.description != ""{
+            lblDescription.text = dataItem.description
             lblDescription.isHidden = false
         }else{
             lblDescription.isHidden = true
@@ -49,22 +49,22 @@ class TaskTBLCell: UITableViewCell, NibReusable {
         
         let formatter = DateFormatter()
         formatter.dateFormat = "d MMMM yyyy, h:mm a"
-        let formattedDate = formatter.string(from: dataItem.dueDate)
-        lblDueDate.text = formattedDate
+        let formattedDate = formatter.string(from: Date.distantFuture)
+        lblDueDate.text = "Pending"// formattedDate
         
         btnFavUnfavTasks.setImage(
-            dataItem.isFavorite
+            dataItem.isFavorite.isTrue()
             ? UIImage(systemName: "star.fill")
             : UIImage(systemName: "star"),
             for: .normal
         )
         
-        if dataItem.isCompleted {
+        if dataItem?.isCompleted?.isTrue() == true{
             lblPriority.text = "Completed"
             lblPriority.superview?.backgroundColor = .systemGreen
         }else{
             
-            lblPriority.text = dataItem.priority.rawValue
+            lblPriority.text = dataItem.priority.title
             lblPriority.superview?.backgroundColor =
             switch dataItem.priority {
             case .high: UIColor.systemRed.withAlphaComponent(0.8)
@@ -82,14 +82,6 @@ class TaskTBLCell: UITableViewCell, NibReusable {
     }
     
     @IBAction private func onClickBtnFavUnFavTask(_ sender: UIButton) {
-        
-        if dataItem.isFavorite {
-            TaskManager.shared.unfavTask(taskData: dataItem)
-        }else{
-            TaskManager.shared.favTask(taskData: dataItem)
-        }
-        
-        dataItem.isFavorite.toggle()
         onClickFavUnFavTask?()
         print(#function)
     }

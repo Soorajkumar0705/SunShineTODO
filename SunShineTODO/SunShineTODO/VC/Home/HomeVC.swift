@@ -18,9 +18,16 @@ class HomeVC : UIViewController, StoryboardBased {
     @IBOutlet private weak var tblTasks: TaskTableView!
     
     
+    private var taskManager : TaskAPIManager!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        taskManager = TaskAPIManager(apiService: APIServiceFactory().makeAPIService())
+        taskManager.delegate = self
+        
         updateUI()
+        
     }
     
     private func updateUI(){
@@ -50,28 +57,40 @@ class HomeVC : UIViewController, StoryboardBased {
             }
         }
         
-        tblTasks.didClickMoreOptions = { [weak self] in
+        tblTasks.didClickMoreOptions = { [weak self] indexPath in
             guard let self else { return }
             
             showBottomSheet()
             
         }
         
+        tblTasks.didClickFavoriteTodo = { [weak self] indexPath in
+            guard let self else { return }
+            
+            guard let selectedIndexPath = self.tblTasks.selectedIndexPath else { return }
+            let selectedTaskData = taskManager.toDoList[selectedIndexPath.row]
+            
+            taskManager.favoriteToDoTask(
+                taskId: selectedTaskData.id,
+                isFavorite: selectedTaskData.isFavorite.isTrue() ? false : true
+            )
+            
+        }
+        
         tblTasks.configure()
-        TaskManager.shared.taskData = TaskManager.shared.getTask()
-        tblTasks.dataItems = TaskManager.shared.taskData
-        tblTasks.reloadData()
+        taskManager.getToDoList()
     }
     
     
     
     @IBAction private func onClickBtnOpenSideMenu(_ sender: UIButton) {
-        
+        SideMenuVC.instantiate(from: .main)
+            .presentAsChildVC(in: self, animated: true)
         print(#function)
     }
     
     @IBAction private func onClickBtnSearch(_ sender: UIButton) {
-        
+        txtFind.becomeFirstResponder()
         print(#function)
     }
     
@@ -80,13 +99,45 @@ class HomeVC : UIViewController, StoryboardBased {
         
         vc.didAddedTaskSuccessfully = { [weak self] in
             guard let self else { return }
-            tblTasks.reloadData()
+            taskManager.getToDoList()
         }
         
         vc.presentAsChildVC(in: self, animated: true)
         
         print(#function)
     }
+    
+}
+
+extension HomeVC : TaskAPIManagerDelegate {
+    
+    func didRecieveTodoListDataResponse() {
+        DispatchQueue.main.async {  [weak self] in
+            guard let self else { return }
+            tblTasks.selectedIndexPath = nil    
+            tblTasks.dataItems = taskManager.toDoList
+            tblTasks.reloadData()
+        }
+    }
+    
+    func didRecieveCreateToDoResponse() {
+        taskManager.getToDoList()
+        print("I am here in ", #function)
+    }
+    
+    func didCreatedTODO() {
+        taskManager.getToDoList()
+        print("I am here in ", #function)
+    }
+    
+    func didRecievUpdateTodoRespobse() {
+        
+    }
+    
+    func didRecieveDeleteToDoResponse() {
+        
+    }
+
     
 }
 
@@ -97,10 +148,10 @@ extension HomeVC : UITextFieldDelegate{
         let latestString = textField.getLatestString(in: range, with: string)
         
         if latestString.isEmpty {
-            tblTasks.dataItems = TaskManager.shared.taskData
+            tblTasks.dataItems = taskManager.toDoList
         }else{
             
-            let filteredTasks = TaskManager.shared.taskData.filter({ $0.title.lowercased().contains(latestString.lowercased()) })
+            let filteredTasks = taskManager.toDoList.filter({ $0.title.lowercased().contains(latestString.lowercased()) })
             
             tblTasks.dataItems = filteredTasks
         }
@@ -133,7 +184,7 @@ extension HomeVC {
     @objc private func onClearText(_ sender : Any){
         txtFind.resignFirstResponder()
         txtFind.text = ""
-        tblTasks.dataItems = TaskManager.shared.taskData
+        tblTasks.dataItems = taskManager.toDoList
         tblTasks.reloadData()
     }
     
@@ -143,25 +194,28 @@ extension HomeVC {
     
     func showBottomSheet(){
         guard let selectedIndexPath = self.tblTasks.selectedIndexPath else { return }
-        let selectedTaskData = TaskManager.shared.taskData[selectedIndexPath.row]
+        let selectedTaskData = taskManager.toDoList[selectedIndexPath.row]
         
         let actionSheet = UIAlertController(title: "More Option", message: nil, preferredStyle: .actionSheet)
 
         actionSheet.addAction(UIAlertAction(
-            title: "Mark as \(selectedTaskData.isCompleted ? "Uncomplete" : "Complete")",
-            style: .default, handler: { _ in
+            title: "Mark as \((selectedTaskData.isCompleted?.isTrue() == true ) ? "Uncomplete" : "Complete")",
+            style: .default, handler: { [weak self] _ in
             print("Mark as complete selected")
             
-                TaskManager.shared.taskData[selectedIndexPath.row].isCompleted =
-                !TaskManager.shared.taskData[selectedIndexPath.row].isCompleted
-                
+                self?.taskManager.markCompleteToDoTask(
+                    taskId: selectedTaskData.id,
+                    isCompleted: (selectedTaskData.isCompleted?.isTrue() == true ) ? false : true
+                )
+
         }))
 
-        actionSheet.addAction(UIAlertAction(title: "Delete", style: .default, handler: { _ in
+        actionSheet.addAction(UIAlertAction(title: "Delete", style: .default, handler: { [weak self] _ in
             
-            if let selectedIndexPath = self.tblTasks.selectedIndexPath {
-                let taskData = TaskManager.shared.taskData[selectedIndexPath.row]
-                TaskManager.shared.deleteTask(task: taskData)
+            if let self,
+               let selectedIndexPath = tblTasks.selectedIndexPath {
+                let taskData = taskManager.toDoList[selectedIndexPath.row]
+                taskManager.deleteToDoTask(taskId: taskData.id)
             }
             
             print("delete selected")
