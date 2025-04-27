@@ -7,12 +7,17 @@
 
 import UIKit
 
+class HomeVCFactory {
+    
+    func makeVC() -> HomeVC {
+        HomeVC.instantiate(from: .tabBar)
+    }
+    
+}
 
 class HomeVC : UIViewController, StoryboardBased {
     
     @IBOutlet private weak var txtFind: UITextField!
-    
-    @IBOutlet private weak var vwNoNotes: UIView!
     @IBOutlet private weak var lblNoNotesMessage: UILabel!
     
     @IBOutlet private weak var tblTasks: TaskTableView!
@@ -34,12 +39,17 @@ class HomeVC : UIViewController, StoryboardBased {
         addClearButtOnToolBar()
         
         txtFind.delegate = self
-        txtFind.placeholder = "Find your TO DO Task"
+        txtFind.placeholder = "Find your To Do Task"
         txtFind.textColor = .black
         
-        lblNoNotesMessage.text = "No TO DO's Right Now! \n Please Create New "
+        lblNoNotesMessage.text = "No To Do's Right Now! \n Please Create New "
         
         configureTableView()
+        
+        NotificationCenter.default.addObserver(forName: .didReceiveCreateToDoResponse, object: nil, queue: .main, using: { [weak self] notification in
+            guard let self else { return }
+            taskManager.getToDoList()
+        })
     }
     
     private func configureTableView(){
@@ -48,11 +58,11 @@ class HomeVC : UIViewController, StoryboardBased {
             guard let self else { return }
             
             if tblTasks.dataItems.count > 0 {
-                vwNoNotes.isHidden = true
+                lblNoNotesMessage.isHidden = true
                 tblTasks.isHidden = false
                 
             }else{
-                vwNoNotes.isHidden = false
+                lblNoNotesMessage.isHidden = false
                 tblTasks.isHidden = true
             }
         }
@@ -91,19 +101,6 @@ class HomeVC : UIViewController, StoryboardBased {
     
     @IBAction private func onClickBtnSearch(_ sender: UIButton) {
         txtFind.becomeFirstResponder()
-        print(#function)
-    }
-    
-    @IBAction private func onClickBtnAddTODO(_ sender: UIButton) {
-        let vc = AddTaskVC.instantiate(from: .main)
-        
-        vc.didAddedTaskSuccessfully = { [weak self] in
-            guard let self else { return }
-            taskManager.getToDoList()
-        }
-        
-        vc.presentAsChildVC(in: self, animated: true)
-        
         print(#function)
     }
     

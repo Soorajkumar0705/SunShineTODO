@@ -36,8 +36,14 @@ class DateSelectionVC : UIViewController, StoryboardBased{
     }
     
     @IBAction private func onClickBtnDone(_ sender: UIButton) {
-        didSelectedDate?(datePicker.date)
-        removeChildVC(self)
+        
+        if datePicker.date > Date() {
+            didSelectedDate?(datePicker.date)
+            removeChildVC(self)
+        }else{
+            Toast.show("Please select a valid date.")
+        }
+        
         print(#function)
     }
     

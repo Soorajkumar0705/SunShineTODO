@@ -18,11 +18,10 @@ class AddTaskVC : UIViewController, StoryboardBased {
     
     
     
-    let taskDetailsPlaceholder = "Task Details..."
+    let taskDetailsPlaceholder = "Description..."
     var builder : CreateToDoRequestBuilder?
     var taskManager : TaskAPIManager?
     
-    var didAddedTaskSuccessfully : (() -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,14 +44,24 @@ class AddTaskVC : UIViewController, StoryboardBased {
         
         bgView.addTapGesture(action: { [weak self] _ in
             guard let self else { return }
-            removeChildVC(self)
+            removeChildVCWithAnimation()
         })
         
     }
     
+    func removeChildVCWithAnimation(){
+        UIView.animate(withDuration: 0.3) {  [weak self] in
+            guard let self else { return }
+            bottomContainerView.frame.origin.y += (bottomContainerView.frame.height + 100)
+        } completion: { [weak self] _ in
+            guard let self else { return }
+            removeChildVC(self)
+        }
+    }
+    
     
     @IBAction private func onClickBtnSelectDate(_ sender: UIButton) {
-        let vc = DateSelectionVC.instantiate(from: .main)
+        let vc = DateSelectionVC.instantiate(from: .tabBar)
         
         vc.didSelectedDate = { [weak self] selectedDate in
             guard let self else { return }
@@ -89,7 +98,7 @@ class AddTaskVC : UIViewController, StoryboardBased {
     
     
     @IBAction private func onClickBtnCancel(_ sender: UIButton) {
-        removeChildVC(self)
+        removeChildVCWithAnimation()
         print(#function)
     }
     
@@ -127,8 +136,8 @@ extension AddTaskVC : TaskAPIManagerDelegate {
         DispatchQueue.main.async {  [weak self] in
             guard let self else { return }
             
-            didAddedTaskSuccessfully?()
-            removeChildVC(self)
+            NotificationCenter.default.post(name: .didReceiveCreateToDoResponse, object: nil)
+            removeChildVCWithAnimation()
         }
     }
     

@@ -13,6 +13,8 @@ extension UIStoryboard {
     
     static let login = UIStoryboard(name: "Login", bundle: nil)
     
+    static let tabBar = UIStoryboard(name: "TabBar", bundle: nil)
+    
     static let home = UIStoryboard(name: "Home", bundle: nil)
     
     static let popUpView = UIStoryboard(name: "PopUpView", bundle: nil)

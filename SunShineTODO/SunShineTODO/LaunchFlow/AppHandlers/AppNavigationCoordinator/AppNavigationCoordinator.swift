@@ -70,7 +70,7 @@ class AppNavigationCoordinator : AppNavigationCoordinatorType{
         if AuthenticationHandler.shared.isSignedIn {
             HomeVC.instantiate(from: .main)
         }else{
-            SignUpORSignInScreenVCFactory().makeVC(isSignUp: false)
+            TabBarVCFactory().makeVC()
         }
         
         setRootVC(vc)

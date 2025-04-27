@@ -17,7 +17,7 @@ class Toast{
             hide()
             guard let activeVC = AppDelegate.getAppDelegateRef()?.getActiveVC() else { return }
             
-            let toastView = ToastMessageView(message: message, bottomMargin: bottomMargin ?? 20.0)
+            let toastView = ToastMessageView(message: message, bottomMargin: bottomMargin ?? 120.0)
             
             toastView.alpha = 0
             

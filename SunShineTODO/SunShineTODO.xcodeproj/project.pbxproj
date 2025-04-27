@@ -21,6 +21,16 @@
 		B0A011F02DBE1D7D00BBD4DF /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A011EF2DBE1D7D00BBD4DF /* Onboarding.swift */; };
 		B0A011F22DBE1DDD00BBD4DF /* ThemeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A011F12DBE1DDD00BBD4DF /* ThemeButtonView.swift */; };
 		B0A011F42DBE279B00BBD4DF /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A011F32DBE279B00BBD4DF /* View+Extension.swift */; };
+		B0A011F72DBE364000BBD4DF /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A011F62DBE364000BBD4DF /* ProfileVC.swift */; };
+		B0A011FA2DBE369900BBD4DF /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A011F92DBE369900BBD4DF /* TabBarVC.swift */; };
+		B0A011FC2DBE36DD00BBD4DF /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0A011FB2DBE36DD00BBD4DF /* TabBar.storyboard */; };
+		B0A011FE2DBE379900BBD4DF /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0A011FD2DBE379900BBD4DF /* Login.storyboard */; };
+		B0A012002DBE712700BBD4DF /* ProfileOptionsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A011FF2DBE712700BBD4DF /* ProfileOptionsTableView.swift */; };
+		B0A012042DBE716500BBD4DF /* ProfileOptionsTBLCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A012022DBE716500BBD4DF /* ProfileOptionsTBLCell.swift */; };
+		B0A012052DBE716500BBD4DF /* ProfileOptionsTBLCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0A012032DBE716500BBD4DF /* ProfileOptionsTBLCell.xib */; };
+		B0A012072DBE720400BBD4DF /* ProfileOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A012062DBE720400BBD4DF /* ProfileOptions.swift */; };
+		B0A0120A2DBE7BC100BBD4DF /* BottomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A012092DBE7BC100BBD4DF /* BottomTabBarView.swift */; };
+		B0A0120C2DBE7BD000BBD4DF /* BottomTabBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0A0120B2DBE7BD000BBD4DF /* BottomTabBarView.xib */; };
 		E13DE1D42DB3D1F400ECDD8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13DE1CA2DB3D1F400ECDD8D /* AppDelegate.swift */; };
 		E13DE1D72DB3D1F400ECDD8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E13DE1CB2DB3D1F400ECDD8D /* Assets.xcassets */; };
 		E13DE1D92DB3D1F400ECDD8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E13DE1CE2DB3D1F400ECDD8D /* LaunchScreen.storyboard */; };
@@ -151,6 +161,16 @@
 		B0A011EF2DBE1D7D00BBD4DF /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		B0A011F12DBE1DDD00BBD4DF /* ThemeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeButtonView.swift; sourceTree = "<group>"; };
 		B0A011F32DBE279B00BBD4DF /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		B0A011F62DBE364000BBD4DF /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		B0A011F92DBE369900BBD4DF /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
+		B0A011FB2DBE36DD00BBD4DF /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
+		B0A011FD2DBE379900BBD4DF /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		B0A011FF2DBE712700BBD4DF /* ProfileOptionsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOptionsTableView.swift; sourceTree = "<group>"; };
+		B0A012022DBE716500BBD4DF /* ProfileOptionsTBLCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOptionsTBLCell.swift; sourceTree = "<group>"; };
+		B0A012032DBE716500BBD4DF /* ProfileOptionsTBLCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileOptionsTBLCell.xib; sourceTree = "<group>"; };
+		B0A012062DBE720400BBD4DF /* ProfileOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOptions.swift; sourceTree = "<group>"; };
+		B0A012092DBE7BC100BBD4DF /* BottomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTabBarView.swift; sourceTree = "<group>"; };
+		B0A0120B2DBE7BD000BBD4DF /* BottomTabBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomTabBarView.xib; sourceTree = "<group>"; };
 		E13DE1962DB3D1EC00ECDD8D /* SunShineTODO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SunShineTODO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E13DE1AC2DB3D1ED00ECDD8D /* SunShineTODOTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SunShineTODOTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E13DE1B62DB3D1ED00ECDD8D /* SunShineTODOUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SunShineTODOUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -345,6 +365,46 @@
 			path = OnboardingView;
 			sourceTree = "<group>";
 		};
+		B0A011F52DBE363000BBD4DF /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				B0A012062DBE720400BBD4DF /* ProfileOptions.swift */,
+				B0A011F62DBE364000BBD4DF /* ProfileVC.swift */,
+				B0A011FF2DBE712700BBD4DF /* ProfileOptionsTableView.swift */,
+				B0A012012DBE714E00BBD4DF /* ProfileOptionsTBLCell */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		B0A011F82DBE368300BBD4DF /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				B0A011F92DBE369900BBD4DF /* TabBarVC.swift */,
+				B0A012082DBE7B8500BBD4DF /* BottomTabBarView */,
+				B0A011DB2DBCAF5C00BBD4DF /* Home */,
+				B0A011F52DBE363000BBD4DF /* Profile */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		B0A012012DBE714E00BBD4DF /* ProfileOptionsTBLCell */ = {
+			isa = PBXGroup;
+			children = (
+				B0A012022DBE716500BBD4DF /* ProfileOptionsTBLCell.swift */,
+				B0A012032DBE716500BBD4DF /* ProfileOptionsTBLCell.xib */,
+			);
+			path = ProfileOptionsTBLCell;
+			sourceTree = "<group>";
+		};
+		B0A012082DBE7B8500BBD4DF /* BottomTabBarView */ = {
+			isa = PBXGroup;
+			children = (
+				B0A012092DBE7BC100BBD4DF /* BottomTabBarView.swift */,
+				B0A0120B2DBE7BD000BBD4DF /* BottomTabBarView.xib */,
+			);
+			path = BottomTabBarView;
+			sourceTree = "<group>";
+		};
 		B0F746A32DB6B3C4000D1244 /* TaskManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -410,7 +470,7 @@
 				B0A011F12DBE1DDD00BBD4DF /* ThemeButtonView.swift */,
 				B0A011EC2DBE1D6600BBD4DF /* OnboardingView */,
 				B0981B752DB80E170036C795 /* Auth */,
-				B0A011DB2DBCAF5C00BBD4DF /* Home */,
+				B0A011F82DBE368300BBD4DF /* TabBar */,
 				B0A011E72DBCC93800BBD4DF /* SideMenu */,
 				E1AA8F6C2DB51C2200366671 /* AddTaskVC */,
 			);
@@ -704,6 +764,8 @@
 			children = (
 				E13DE1CE2DB3D1F400ECDD8D /* LaunchScreen.storyboard */,
 				E13DE1D02DB3D1F400ECDD8D /* Main.storyboard */,
+				B0A011FD2DBE379900BBD4DF /* Login.storyboard */,
+				B0A011FB2DBE36DD00BBD4DF /* TabBar.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -850,7 +912,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0A011FC2DBE36DD00BBD4DF /* TabBar.storyboard in Resources */,
+				B0A0120C2DBE7BD000BBD4DF /* BottomTabBarView.xib in Resources */,
 				E13DE1D72DB3D1F400ECDD8D /* Assets.xcassets in Resources */,
+				B0A012052DBE716500BBD4DF /* ProfileOptionsTBLCell.xib in Resources */,
+				B0A011FE2DBE379900BBD4DF /* Login.storyboard in Resources */,
 				E1AA8F7B2DB5497D00366671 /* TaskTBLCell.xib in Resources */,
 				E13DE1D92DB3D1F400ECDD8D /* LaunchScreen.storyboard in Resources */,
 				E13DE1DA2DB3D1F400ECDD8D /* Main.storyboard in Resources */,
@@ -894,17 +960,20 @@
 				E13DE2762DB3D38300ECDD8D /* PlaceholderHandlerTextView.swift in Sources */,
 				E13DE2772DB3D38300ECDD8D /* Date+Extension.swift in Sources */,
 				E13DE2782DB3D38300ECDD8D /* Bundle+Extensions.swift in Sources */,
+				B0A012002DBE712700BBD4DF /* ProfileOptionsTableView.swift in Sources */,
 				E13DE27A2DB3D38300ECDD8D /* UITableView+Reusable.swift in Sources */,
 				E13DE27B2DB3D38300ECDD8D /* Toast.swift in Sources */,
 				E13DE27C2DB3D38300ECDD8D /* Resource.swift in Sources */,
 				E13DE27D2DB3D38300ECDD8D /* CodableHelper.swift in Sources */,
 				E13DE27F2DB3D38300ECDD8D /* ErrorProtocol.swift in Sources */,
 				E13DE2802DB3D38300ECDD8D /* ImageCacheManager.swift in Sources */,
+				B0A011FA2DBE369900BBD4DF /* TabBarVC.swift in Sources */,
 				E13DE2812DB3D38300ECDD8D /* UICollectionView+Reusable.swift in Sources */,
 				E13DE2822DB3D38300ECDD8D /* UDStorageKey.swift in Sources */,
 				E13DE2832DB3D38300ECDD8D /* OtherExtensions.swift in Sources */,
 				E13DE2842DB3D38300ECDD8D /* Logger+Extensions.swift in Sources */,
 				E13DE2852DB3D38300ECDD8D /* ClassNameLoggable.swift in Sources */,
+				B0A0120A2DBE7BC100BBD4DF /* BottomTabBarView.swift in Sources */,
 				E13DE2862DB3D38300ECDD8D /* AttributedStringBuilder.swift in Sources */,
 				E13DE2872DB3D38300ECDD8D /* Storage.swift in Sources */,
 				E13DE2882DB3D38300ECDD8D /* BundleProtocol.swift in Sources */,
@@ -939,6 +1008,7 @@
 				E13DE21B2DB3D32A00ECDD8D /* PaginatedModel.swift in Sources */,
 				E1AA8F752DB5280300366671 /* DateSelectionVC.swift in Sources */,
 				E13DE21C2DB3D32A00ECDD8D /* MultipartFormDataBuilder.swift in Sources */,
+				B0A012072DBE720400BBD4DF /* ProfileOptions.swift in Sources */,
 				E13DE21D2DB3D32A00ECDD8D /* CommonAPIRes.swift in Sources */,
 				B0A011E22DBCB7C900BBD4DF /* ToDoTask.swift in Sources */,
 				B0A011DD2DBCAFC500BBD4DF /* TaskAPIManager.swift in Sources */,
@@ -957,6 +1027,7 @@
 				E13DE2272DB3D32A00ECDD8D /* AppNavigationCoordinator.swift in Sources */,
 				E13DE2282DB3D32A00ECDD8D /* NetworkReachabilityHandler.swift in Sources */,
 				E1AA8F772DB5459200366671 /* TaskTableView.swift in Sources */,
+				B0A012042DBE716500BBD4DF /* ProfileOptionsTBLCell.swift in Sources */,
 				B0A011DA2DBCA28900BBD4DF /* SignUpORSignInScreenVM.swift in Sources */,
 				E1AA8F7E2DB54A0800366671 /* UITableViewCell+Extension.swift in Sources */,
 				E13DE2292DB3D32A00ECDD8D /* NetworkHandler.swift in Sources */,
@@ -964,6 +1035,7 @@
 				E13DE22A2DB3D32A00ECDD8D /* RequestFactory.swift in Sources */,
 				E13DE22B2DB3D32A00ECDD8D /* ResponseModelProtocols.swift in Sources */,
 				E13DE22C2DB3D32A00ECDD8D /* MicrophonePermissionHandler.swift in Sources */,
+				B0A011F72DBE364000BBD4DF /* ProfileVC.swift in Sources */,
 				E13DE22D2DB3D32A00ECDD8D /* HTTPHeaderFieldValues.swift in Sources */,
 				B0A011F02DBE1D7D00BBD4DF /* Onboarding.swift in Sources */,
 				B0A011F42DBE279B00BBD4DF /* View+Extension.swift in Sources */,

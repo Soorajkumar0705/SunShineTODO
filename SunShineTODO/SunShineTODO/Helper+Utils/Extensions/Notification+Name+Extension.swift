@@ -16,6 +16,8 @@ extension Notification.Name {
     static let applicationWillResignActive = Notification.Name("applicationWillResignActive")
     
     
+    static let didReceiveCreateToDoResponse = Notification.Name("didReceiveCreateToDoResponse")
+    
     static let didStopSplashScreenVideoPlaying = Notification.Name("didStopSplashScreenVideoPlaying")
 }
 

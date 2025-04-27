@@ -9,15 +9,8 @@ import UIKit
 
 class ToastMessageView: UIView , NibLoadable{
     
-    var bottomMargin : CGFloat = 20.0{
-        didSet{
-        }
-    }
-    
-    var message : String = "" {
-        didSet{
-        }
-    }
+    var bottomMargin : CGFloat = 0.0
+    var message : String = ""
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -29,11 +22,11 @@ class ToastMessageView: UIView , NibLoadable{
         updateUI()
     }
     
-    init (message : String, bottomMargin : CGFloat = 20.0) {
+    init (message : String, bottomMargin : CGFloat) {
         super.init(frame: .zero)
         
         self.message = message
-        self.bottomMargin = 40.0//bottomMargin
+        self.bottomMargin = bottomMargin
         
         updateUI()
     }
@@ -59,7 +52,7 @@ class ToastMessageView: UIView , NibLoadable{
         containerView.backgroundColor = UIColor.white
         containerView.layer.cornerRadius = 10
         containerView.layer.borderWidth = 1
-        containerView.layer.borderColor = UIColor.systemIndigo.cgColor
+        containerView.layer.borderColor = UIColor._91919_F.cgColor
         containerView.clipsToBounds = true
         
         containerView.translatesAutoresizingMaskIntoConstraints = false

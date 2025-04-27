@@ -11,13 +11,7 @@ enum FontFamily : String{
     
     // Add the fonts manually in ->  info.plist -> Fonts Provided By Application
     
-    case kAlbertSansItalic = "AlbertSans-Italic"
-    case kAlbertSansBold = "AlbertSans-Bold"
-    case kAlbertSansLight = "AlbertSans-Light"
-    case kAlbertSansMedium = "AlbertSans-Medium"
-    case kAlbertSansRegular = "AlbertSans-Regular"
-    case kAlbertSansSemiBold = "AlbertSans-SemiBold"
-    case kRobotoLight = "Roboto-Light"
+    case kTest = "Test"
     
     
     func ofSize(_ size: CGFloat) -> UIFont{

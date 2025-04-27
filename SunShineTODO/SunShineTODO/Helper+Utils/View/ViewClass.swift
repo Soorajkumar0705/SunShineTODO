@@ -9,52 +9,10 @@ import UIKit
 
 // MARK: - Custom Classes
 
-class AlbertSansItalicLabel : UILabel{
+class TestLabel : UILabel{
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.font = FontFamily.kAlbertSansItalic.ofSize(self.font.pointSize)
-    }
-}
-
-class AlbertSansBoldLabel : UILabel{
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.font = FontFamily.kAlbertSansBold.ofSize(self.font.pointSize)
-    }
-}
-
-class AlbertSansLightLabel : UILabel{
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.font = FontFamily.kAlbertSansLight.ofSize(self.font.pointSize)
-    }
-}
-
-class AlbertSansMediumLabel : UILabel{
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.font = FontFamily.kAlbertSansMedium.ofSize(self.font.pointSize)
-    }
-}
-
-class AlbertSansRegularLabel : UILabel{
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.font = FontFamily.kAlbertSansRegular.ofSize(self.font.pointSize)
-    }
-}
-
-class AlbertSansSemiBoldLabel : UILabel{
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.font = FontFamily.kAlbertSansSemiBold.ofSize(self.font.pointSize)
-    }
-}
-
-class RobotoLightLabel : UILabel{
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.font = FontFamily.kRobotoLight.ofSize(self.font.pointSize)
+        self.font = FontFamily.kTest.ofSize(self.font.pointSize)
     }
 }
 
