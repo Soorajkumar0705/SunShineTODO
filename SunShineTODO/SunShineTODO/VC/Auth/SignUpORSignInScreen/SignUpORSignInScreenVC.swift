@@ -6,166 +6,180 @@
 //
 
 import UIKit
+import SwiftUI
 
-class SignUpORSignInScreenVCFactory {
+
+enum AuthType : String {
+    case signUp
+    case signIn
+}
+
+
+class SignUpORSignInScreenFactory {
     
-    func makeVC(isSignUp : Bool) -> SignUpORSignInScreenVC {
-        let vc = SignUpORSignInScreenVC.instantiate(from: .main)
-        vc.isSignUp = isSignUp
-        
-        return vc
+    func makeVC(authType : AuthType) -> UIViewController {
+        SignUpORSignInView(authType: authType).toVC()
     }
     
 }
 
-class SignUpORSignInScreenVC: UIViewController, StoryboardBased {
+
+struct SignUpORSignInView: View {
+
+    @State var authType : AuthType = .signIn
+    @StateObject private var vm = SignUpORSignInScreenVMFactory().make()
+
     
-    @IBOutlet private weak var bottomContainerView: UIView!
-    @IBOutlet private weak var lblViewTitle: UILabel!
+    var isHideNavigationBar : Bool = false
     
-    @IBOutlet private weak var txtName: UITextField!
-    @IBOutlet private weak var txtEmail: UITextField!
-    @IBOutlet private weak var txtPassword: UITextField!
-    @IBOutlet private weak var txtConfimPassword: UITextField!
-    
-    @IBOutlet private weak var lblAlreadyHaveAnAccount: UILabel!
-    
-    
-    @IBOutlet private weak var btnSignUpOrSignIn: UIButton!
-    
-    
-    var isSignUp: Bool! {
-        didSet{
-            _=requestBuilder.setIsSignUp(isSignUp)
-        }
+
+    private var isSignIn : Bool {
+        authType == .signIn
     }
     
-    var vm = SignUpORSignInScreenVM()
-    var requestBuilder = AuthenticationRequestBuilder()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    var body: some View {
         
-        if isSignUp == nil {
-            fatalError("Please instantiate this class from factory method.")
-        }
-        _=requestBuilder.setIsSignUp(isSignUp)
-        
-        setupUI()
-        bindVM()
-    }
-    
-    private func setupUI(){
-        txtName.addKeyboardDismissAbilityOnToolBarDoneButton()
-        txtName.placeholder = "Name"
-        txtName.textColor = .black
-        
-        txtEmail.addKeyboardDismissAbilityOnToolBarDoneButton()
-        txtEmail.placeholder = "Email"
-        txtEmail.textColor = .black
-        
-        txtPassword.addKeyboardDismissAbilityOnToolBarDoneButton()
-        txtPassword.placeholder = "Password"
-        txtPassword.textColor = .black
-        
-        txtConfimPassword.addKeyboardDismissAbilityOnToolBarDoneButton()
-        txtConfimPassword.placeholder = "Confirm Password"
-        txtConfimPassword.textColor = .black
-        
-        btnSignUpOrSignIn.titleLabel?.font = .systemFont(ofSize: 20, weight: .medium)
-        
-        updateUIForSignInFlag()
-        addKeyBoardOpenCloseHandleUIStateObserver()
-    }
-    
-    private func updateUIForSignInFlag(){
-        
-        if isSignUp {
-            lblViewTitle.text = "Sign Up"
-            txtName.superview?.isHidden = false
-            txtConfimPassword.superview?.isHidden = false
-            
-            lblAlreadyHaveAnAccount.text = "Already have an account? Sign in"
-            btnSignUpOrSignIn.setTitle("Sign Up", for: .normal)
-            
-        }else{
-            lblViewTitle.text = "Sign In"
-            txtName.superview?.isHidden = true
-            txtConfimPassword.superview?.isHidden = true
-            
-            lblAlreadyHaveAnAccount.text = "Don't have an account? Sign up"
-            
-            btnSignUpOrSignIn.setTitle("Sign In", for: .normal)
-            
-        }
-        
-    }
-    
-    private func bindVM(){
-        vm.didRecieveError = { [weak self] error in
-            guard let _ = self else { return }
-            DispatchQueue.main.async {
-                Toast.show(error)
+        NavigationStack{
+            VStack {
+                
+                Text(isSignIn ? "Sign In" : "Sign Up")
+                    .font(.system(size: 25, weight: .semibold))
+                    .background(ignoresSafeAreaEdges: .top)
+                    .padding(.top, 30)
+                    .padding(.bottom, 50)
+                
+                VStack(spacing: 20, content: {
+                    
+                    if !isSignIn{
+                        // Name TextField
+                        TextField("Enter your name", text: $vm.name)
+                            .padding()
+                            .overlay( // Border around the text field
+                                RoundedRectangle(cornerRadius: 12)
+                                    .stroke(Color.gray.opacity(0.6), lineWidth: 1) // Blue border with a width of 2
+                            )
+                    }
+                    
+                    // Email TextField with validation
+                    TextField("Enter your email", text: $vm.email)
+                        .padding()
+                        .overlay( // Border around the text field
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(Color.gray.opacity(0.6), lineWidth: 1) // Blue border with a width of 2
+                        )
+                        .keyboardType(.emailAddress)
+                        .autocapitalization(.none)
+                        .onChange(of: vm.email) { newValue in
+                            vm.validateEmail(email: newValue)
+                        }
+                    
+                    if !vm.isValidEmail {
+                        Text("Please enter a valid email address.")
+                            .foregroundColor(.red)
+                            .font(.caption)
+                            .padding(.horizontal)
+                    }
+                    
+                    HStack {
+                        // Password field (Secure or plain based on visibility state)
+                        if vm.isPasswordVisible {
+                            TextField("Enter your password", text: $vm.password)
+                                .padding()
+                                .onChange(of: vm.password, perform: { newValue in
+                                    vm.isValidPassword = (newValue.count >= 6)
+                                })
+                            
+                        } else {
+                            SecureField("Enter your password", text: $vm.password)
+                                .padding()
+                                .onChange(of: vm.password, perform: { newValue in
+                                    vm.isValidPassword = (newValue.count >= 6)
+                                })
+                        }
+                        
+                        // Eye icon to toggle password visibility
+                        Button(action: {
+                            vm.isPasswordVisible.toggle()
+                        }) {
+                            Image(systemName: vm.isPasswordVisible ? "eye.slash" : "eye")
+                                .foregroundColor(.gray)
+                                .padding(.trailing)
+                        }
+                    }
+                    .overlay( // Border around the text field
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(Color.gray.opacity(0.6), lineWidth: 1) // Blue border with a width of 2
+                    )
+                    
+                    if !vm.isValidPassword {
+                        Text("Password must be at least 6 characters.")
+                            .foregroundColor(.red)
+                            .font(.caption)
+                            .padding(.horizontal)
+                    }
+                    
+                    
+                    
+                })
+                .padding(.horizontal, 20)
+                .padding(.bottom, 30)
+                
+                if !isSignIn{
+                    HStack {
+                        // Checkmark
+                        Image(systemName: vm.isChecked ? "checkmark.square.fill" : "square")
+                            .aspectRatio(contentMode: .fill)
+                            .foregroundColor(._7_F_3_DFF)
+                            .onTapGesture {
+                                vm.isChecked.toggle()
+                            }
+                            .padding(.trailing, 10)
+                        
+                        // Terms and Conditions text
+                        Text("By signing up, you agree to the ")
+                            .foregroundColor(.primary)
+                        + Text("Terms of Service and Privacy Policy")
+                            .foregroundColor(._7_F_3_DFF)
+                    }
+                    .padding(.horizontal, 25 )
+                }
+                
+                
+                Button(action: {
+                    vm.authenticate(authType: authType)
+                    
+                }, label: {
+                    ThemeButtonView(title: isSignIn ? "Login" : "Sign Up")
+                })
+                .padding(.horizontal, 20)
+                .padding(.vertical, 20)
+
+                HStack{
+                    // Terms and Conditions text
+                    Text( isSignIn ? "Don’t have an account yet? " : "Already have an account? ")
+                        .foregroundColor(.primary)
+                        .font(.system(size: 15, weight: .medium))
+                    
+                    Button(action: {
+                        
+                        authType = isSignIn ? .signUp : .signIn
+                        
+                    }, label: {
+                        Text(isSignIn ? "Sign UP" : "Sign In")
+                            .foregroundColor(._7_F_3_DFF)
+                            .font(.system(size: 16, weight: .bold))
+                            .underline()
+                    })
+                }
+                
+                Spacer()
+                
             }
+            .navigationBarBackButtonHidden(isHideNavigationBar)
         }
-        
-        vm.didRecieveSignInResponse = { [weak self] in
-            guard let _ = self else { return }
-            DispatchQueue.main.async {            
-                HomeVC.instantiate(from: .main).rootVC()
-            }
-        }
-        
-        vm.didRecieveSignUpResponse = {
-            
-        }
-        
     }
-    
-    @IBAction private func btnAlreadyHaveAnAccountTapped(_ sender: UIButton) {
-        
-        isSignUp.toggle()
-        updateUIForSignInFlag()
-        
-        print(#function)
-    }
-    
-    
-    @IBAction private func btnSignUpOrSignInTapped(_ sender: UIButton) {
-        
-        let req = requestBuilder
-            .setName(txtName.text)
-            .setEmail(txtEmail.text)
-            .setPassword(txtPassword.text)
-        
-        isSignUp ? vm.signUp(requestBuilder: req) : vm.signIn(requestBuilder: req)
-        print(#function)
-    }
-    
 }
 
-extension SignUpORSignInScreenVC {
-    
-    private func addKeyBoardOpenCloseHandleUIStateObserver(){
-        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main, using: { [weak self] notification in
-            guard let self else { return }
-            
-//                guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect
-//                else { return }
-            
-            bottomContainerView.frame.origin.y = 50
-            
-        })
-        
-        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main, using: { [weak self] notification in
-            guard let self else { return }
-            
-            guard let _ /*keyboardFrame*/ = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect
-            else { return }
-            
-            bottomContainerView.frame.origin.y = (view.frame.height)-bottomContainerView.frame.height
-            
-        })
-    }
-    
+#Preview {
+    SignUpORSignInView(authType: .signIn)
 }

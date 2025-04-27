@@ -58,9 +58,7 @@ class TaskAPIManager{
                 
             }catch let error{
                 let error = DefaultAPICallErrorHandling.retrieveErrorMessage(error)
-                DispatchQueue.main.async{
-                    Toast.show(error)
-                }
+                Toast.show(error)
             }
         }
     }
@@ -89,9 +87,7 @@ class TaskAPIManager{
                 
             }catch let error{
                 let error = DefaultAPICallErrorHandling.retrieveErrorMessage(error)
-                DispatchQueue.main.async{
-                    Toast.show(error)
-                }
+                Toast.show(error)
             }
         }
     }
@@ -123,9 +119,7 @@ class TaskAPIManager{
                 
             }catch let error{
                 let error = DefaultAPICallErrorHandling.retrieveErrorMessage(error)
-                DispatchQueue.main.async{
-                    Toast.show(error)
-                }
+                Toast.show(error)
             }
         }
     }
@@ -157,9 +151,7 @@ class TaskAPIManager{
                 
             }catch let error{
                 let error = DefaultAPICallErrorHandling.retrieveErrorMessage(error)
-                DispatchQueue.main.async{
-                    Toast.show(error)
-                }
+                Toast.show(error)
             }
         }
     }
@@ -179,17 +171,13 @@ class TaskAPIManager{
                     toDoList.removeAll(where: { $0.id == taskId })
                     
                 }else{
-                    DispatchQueue.main.async{
-                        Toast.show(apiResponse.message ?? "Something went wrong. Please try again later.")
-                    }
+                    Toast.show(apiResponse.message ?? "Something went wrong. Please try again later.")
                 }
                 
                 
             }catch let error{
                 let error = DefaultAPICallErrorHandling.retrieveErrorMessage(error)
-                DispatchQueue.main.async{
-                    Toast.show(error)
-                }
+                Toast.show(error)
             }
         }
     }

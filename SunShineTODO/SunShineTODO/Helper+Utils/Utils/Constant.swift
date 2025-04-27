@@ -41,6 +41,7 @@ var is_live: Bool {
 
 
 let noInternetConnectionErrorStatusCode : Int = 999
+let somethingWentWrongErrorMessage : String = "Something went wrong. Please try again later."
 
 // CLOSURE
 typealias VoidClosure = () -> Void

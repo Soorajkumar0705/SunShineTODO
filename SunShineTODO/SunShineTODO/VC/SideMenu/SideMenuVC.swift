@@ -48,9 +48,8 @@ class SideMenuVC: UIViewController, StoryboardBased {
     
     @IBAction private func onClickBtnLogout(_ sender: UIButton) {
         AuthenticationHandler.shared.removeAuthenticationDetails()
-        SignUpORSignInScreenVCFactory()
-            .makeVC(isSignUp: false)
-            .rootVC()
+        let vc = SignUpORSignInScreenFactory().makeVC(authType: .signIn)
+        AppNavigationCoordinator.shared.setRootVC(vc)
         print(#function)
     }
     

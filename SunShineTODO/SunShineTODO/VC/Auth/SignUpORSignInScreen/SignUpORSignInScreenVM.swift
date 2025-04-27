@@ -6,74 +6,101 @@
 //
 
 import Foundation
+import Combine
 
-class SignUpORSignInScreenVM : NSObject {
+class SignUpORSignInScreenVMFactory {
+    func make() -> SignUpORSignInScreenVM {
+        SignUpORSignInScreenVM(
+            apiService: APIServiceFactory().makeAPIService()
+        )
+    }
+}
+
+class SignUpORSignInScreenVM : NSObject, ObservableObject {
     
-    let apiService = APIServiceFactory().makeAPIService()
+    let apiService : APIServiceProtocol
     
-    
-    var didRecieveError : ((_ errorMessage : String) -> Void)?
-    
-    var didRecieveSignUpResponse : (() -> Void)?
-    var didRecieveSignInResponse : (() -> Void)?
-    
-    
-    func signIn(requestBuilder : AuthenticationRequestBuilder){
-        Task{
-            do{
-                let req = try requestBuilder.build()
-                
-                let apiResponse = try await apiService.getData(
-                    endpoint: AuthenticationEndPointEnum.signIn(paramBody: req),
-                    useCustomParser: false,
-                    successResponseModelType: APISuccessCodableResponseModel<SignInResponseModel>.self
-                )
-                
-                if (apiResponse.isError ?? true) == false {
-                    AuthenticationHandler.shared.isSignedIn = true
-                    AuthenticationHandler.shared.sessionToken = apiResponse.data?.token ?? "-111"
-                    didRecieveSignInResponse?()
-                    
-                }else{
-                    didRecieveError?("Invalid Credentials")
-                }
-                
-                
-            }catch let error{
-                
-                let error = DefaultAPICallErrorHandling.retrieveErrorMessage(error)
-                didRecieveError?(error)
-            }
-            
-        }
+    init(apiService: APIServiceProtocol) {
+        self.apiService = apiService
     }
     
-    func signUp(requestBuilder : AuthenticationRequestBuilder){
+    @Published var name: String = ""
+    @Published var email: String = ""
+    @Published var password: String = ""
+    
+    @Published var isValidEmail: Bool = true
+    @Published var isValidPassword: Bool = true
+    
+    @Published var isChecked = false
+    @Published var isPasswordVisible: Bool = false
+    
+    
+    func validateEmail(email: String) {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
+        isValidEmail = emailTest.evaluate(with: email)
+    }
+    
+    
+    func authenticate(authType : AuthType){
         Task{
             do{
-                let req = try requestBuilder.build()
+                
+                let req = try AuthenticationRequestBuilder(authType: authType)
+                    .setName(name)
+                    .setEmail(email)
+                    .setPassword(password)
+                    .build()
+                
+                let endpoint = (authType == .signUp) ?
+                AuthenticationEndPointEnum.registerUser(paramBody: req) :
+                AuthenticationEndPointEnum.signIn(paramBody: req)
+                
+                
+                let responseType : CodableResponseModel.Type = (authType == .signUp) ?
+                APISuccessCodableResponseModel<SignUpResponseModel>.self :
+                APISuccessCodableResponseModel<SignInResponseModel>.self
+                
                 
                 let apiResponse = try await apiService.getData(
-                    endpoint: AuthenticationEndPointEnum.registerUser(paramBody: req),
+                    endpoint: endpoint,
                     useCustomParser: false,
-                    successResponseModelType: APISuccessCodableResponseModel<SignUpResponseModel>.self
+                    successResponseModelType: responseType
                 )
                 
-                if (apiResponse.isError ?? true) == false {
-                    
-                    let req = requestBuilder
-                    req.isSignUp = false
-                    signIn(requestBuilder: req)
+                if authType == .signUp {
+                    guard let apiResponse = apiResponse as? APISuccessCodableResponseModel<SignUpResponseModel> else {
+                        return
+                    }
+                    if (apiResponse.isError ?? true) == false {
+                        authenticate(authType: .signIn)
+                        
+                    }else{
+                        Toast.show(apiResponse.message ?? somethingWentWrongErrorMessage)
+                    }
                     
                 }else{
-                    didRecieveError?("Invalid Credentials")
+                    guard let apiResponse = apiResponse as? APISuccessCodableResponseModel<SignInResponseModel> else {
+                        return
+                    }
+                    if (apiResponse.isError ?? true) == false {
+                        AuthenticationHandler.shared.isSignedIn = true
+                        AuthenticationHandler.shared.sessionToken = apiResponse.data?.token ?? "-111"
+                        
+                        DispatchQueue.main.async {
+                            HomeVC.instantiate(from: .main).rootVC()
+                        }
+                        
+                    }else{
+                        Toast.show(apiResponse.message ?? somethingWentWrongErrorMessage)
+                    }
                 }
                 
                 
             }catch let error{
                 
                 let error = DefaultAPICallErrorHandling.retrieveErrorMessage(error)
-                didRecieveError?(error)
+                Toast.show(error)
             }
             
         }
@@ -83,16 +110,18 @@ class SignUpORSignInScreenVM : NSObject {
 
 class AuthenticationRequestBuilder {
     
-    var isSignUp : Bool = true
+    var authType : AuthType
     
-    var name : String?
-    var email : String?
-    var password : String?
+    init(authType: AuthType) {
+        self.authType = authType
+    }
     
+    private var name : String?
+    private var email : String?
+    private var password : String?
     
-    func setIsSignUp(_ isSignUp : Bool) -> Self{
-        self.isSignUp = isSignUp
-        return self
+    private var isSignUp : Bool {
+        return authType == .signUp
     }
     
     func setName(_ name : String?) -> Self{

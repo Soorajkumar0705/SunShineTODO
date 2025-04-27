@@ -16,6 +16,11 @@
 		B0A011E42DBCB83E00BBD4DF /* CreateToDoResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A011E32DBCB83E00BBD4DF /* CreateToDoResponseModel.swift */; };
 		B0A011E62DBCBB0B00BBD4DF /* CreateToDoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A011E52DBCBB0B00BBD4DF /* CreateToDoRequest.swift */; };
 		B0A011E92DBCC94B00BBD4DF /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A011E82DBCC94B00BBD4DF /* SideMenuVC.swift */; };
+		B0A011ED2DBE1D6600BBD4DF /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A011EA2DBE1D6600BBD4DF /* OnboardingView.swift */; };
+		B0A011EE2DBE1D6600BBD4DF /* OnboardingPagerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A011EB2DBE1D6600BBD4DF /* OnboardingPagerDataModel.swift */; };
+		B0A011F02DBE1D7D00BBD4DF /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A011EF2DBE1D7D00BBD4DF /* Onboarding.swift */; };
+		B0A011F22DBE1DDD00BBD4DF /* ThemeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A011F12DBE1DDD00BBD4DF /* ThemeButtonView.swift */; };
+		B0A011F42DBE279B00BBD4DF /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A011F32DBE279B00BBD4DF /* View+Extension.swift */; };
 		E13DE1D42DB3D1F400ECDD8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13DE1CA2DB3D1F400ECDD8D /* AppDelegate.swift */; };
 		E13DE1D72DB3D1F400ECDD8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E13DE1CB2DB3D1F400ECDD8D /* Assets.xcassets */; };
 		E13DE1D92DB3D1F400ECDD8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E13DE1CE2DB3D1F400ECDD8D /* LaunchScreen.storyboard */; };
@@ -141,6 +146,11 @@
 		B0A011E32DBCB83E00BBD4DF /* CreateToDoResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToDoResponseModel.swift; sourceTree = "<group>"; };
 		B0A011E52DBCBB0B00BBD4DF /* CreateToDoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToDoRequest.swift; sourceTree = "<group>"; };
 		B0A011E82DBCC94B00BBD4DF /* SideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
+		B0A011EA2DBE1D6600BBD4DF /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		B0A011EB2DBE1D6600BBD4DF /* OnboardingPagerDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPagerDataModel.swift; sourceTree = "<group>"; };
+		B0A011EF2DBE1D7D00BBD4DF /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		B0A011F12DBE1DDD00BBD4DF /* ThemeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeButtonView.swift; sourceTree = "<group>"; };
+		B0A011F32DBE279B00BBD4DF /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		E13DE1962DB3D1EC00ECDD8D /* SunShineTODO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SunShineTODO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E13DE1AC2DB3D1ED00ECDD8D /* SunShineTODOTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SunShineTODOTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E13DE1B62DB3D1ED00ECDD8D /* SunShineTODOUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SunShineTODOUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -325,6 +335,16 @@
 			path = SideMenu;
 			sourceTree = "<group>";
 		};
+		B0A011EC2DBE1D6600BBD4DF /* OnboardingView */ = {
+			isa = PBXGroup;
+			children = (
+				B0A011EB2DBE1D6600BBD4DF /* OnboardingPagerDataModel.swift */,
+				B0A011EF2DBE1D7D00BBD4DF /* Onboarding.swift */,
+				B0A011EA2DBE1D6600BBD4DF /* OnboardingView.swift */,
+			);
+			path = OnboardingView;
+			sourceTree = "<group>";
+		};
 		B0F746A32DB6B3C4000D1244 /* TaskManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -387,6 +407,8 @@
 		E13DE1DC2DB3D20800ECDD8D /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				B0A011F12DBE1DDD00BBD4DF /* ThemeButtonView.swift */,
+				B0A011EC2DBE1D6600BBD4DF /* OnboardingView */,
 				B0981B752DB80E170036C795 /* Auth */,
 				B0A011DB2DBCAF5C00BBD4DF /* Home */,
 				B0A011E72DBCC93800BBD4DF /* SideMenu */,
@@ -631,6 +653,7 @@
 				E13DE2632DB3D38300ECDD8D /* Bundle+Extensions.swift */,
 				E13DE2642DB3D38300ECDD8D /* Logger+Extensions.swift */,
 				E13DE2652DB3D38300ECDD8D /* UIView+Extension.swift */,
+				B0A011F32DBE279B00BBD4DF /* View+Extension.swift */,
 				E13DE2662DB3D38300ECDD8D /* UITextView+Extension.swift */,
 				E13DE2672DB3D38300ECDD8D /* UIEdgeInsets+Extensions.swift */,
 				E13DE2682DB3D38300ECDD8D /* String+Extension.swift */,
@@ -908,6 +931,7 @@
 				E13DE29D2DB3D38300ECDD8D /* CollectionViewHandlerType.swift in Sources */,
 				E13DE2AC2DB3FDFC00ECDD8D /* AddTaskVC.swift in Sources */,
 				E13DE29E2DB3D38300ECDD8D /* String+Extension.swift in Sources */,
+				B0A011F22DBE1DDD00BBD4DF /* ThemeButtonView.swift in Sources */,
 				E13DE29F2DB3D38300ECDD8D /* StoryboardBased.swift in Sources */,
 				E1AA8F712DB51DDD00366671 /* TaskPriority.swift in Sources */,
 				E13DE2A02DB3D38300ECDD8D /* UIEdgeInsets+Extensions.swift in Sources */,
@@ -924,6 +948,8 @@
 				E13DE2212DB3D32A00ECDD8D /* APIService.swift in Sources */,
 				E13DE2222DB3D32A00ECDD8D /* APIFailureResponseModel.swift in Sources */,
 				E13DE2232DB3D32A00ECDD8D /* ResponseHandlerFactory.swift in Sources */,
+				B0A011ED2DBE1D6600BBD4DF /* OnboardingView.swift in Sources */,
+				B0A011EE2DBE1D6600BBD4DF /* OnboardingPagerDataModel.swift in Sources */,
 				E13DE2242DB3D32A00ECDD8D /* NetworkReachability.swift in Sources */,
 				B0A011E62DBCBB0B00BBD4DF /* CreateToDoRequest.swift in Sources */,
 				E13DE2252DB3D32A00ECDD8D /* HTTPMethod.swift in Sources */,
@@ -939,6 +965,8 @@
 				E13DE22B2DB3D32A00ECDD8D /* ResponseModelProtocols.swift in Sources */,
 				E13DE22C2DB3D32A00ECDD8D /* MicrophonePermissionHandler.swift in Sources */,
 				E13DE22D2DB3D32A00ECDD8D /* HTTPHeaderFieldValues.swift in Sources */,
+				B0A011F02DBE1D7D00BBD4DF /* Onboarding.swift in Sources */,
+				B0A011F42DBE279B00BBD4DF /* View+Extension.swift in Sources */,
 				B0A011E42DBCB83E00BBD4DF /* CreateToDoResponseModel.swift in Sources */,
 				E13DE22E2DB3D32A00ECDD8D /* NetworkHandlerType.swift in Sources */,
 				E13DE22F2DB3D32A00ECDD8D /* CameraPermissionHandler.swift in Sources */,
