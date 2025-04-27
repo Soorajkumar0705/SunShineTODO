@@ -49,17 +49,6 @@ class AddTaskVC : UIViewController, StoryboardBased {
         
     }
     
-    func removeChildVCWithAnimation(){
-        UIView.animate(withDuration: 0.3) {  [weak self] in
-            guard let self else { return }
-            bottomContainerView.frame.origin.y += (bottomContainerView.frame.height + 100)
-        } completion: { [weak self] _ in
-            guard let self else { return }
-            removeChildVC(self)
-        }
-    }
-    
-    
     @IBAction private func onClickBtnSelectDate(_ sender: UIButton) {
         let vc = DateSelectionVC.instantiate(from: .tabBar)
         
@@ -170,6 +159,19 @@ extension AddTaskVC {
         
         
     }
+    
+    private func removeChildVCWithAnimation(){
+        UIView.animate(withDuration: 0.3) {  [weak self] in
+            guard let self else { return }
+            view.backgroundColor = .clear
+            bottomContainerView.frame.origin.y += (bottomContainerView.frame.height + 100)
+            
+        } completion: { [weak self] _ in
+            guard let self else { return }
+            removeChildVC(self)
+        }
+    }
+    
     
     private func addKeyBoardOpenCloseHandleUIStateObserver(){
         NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main, using: { [weak self] notification in

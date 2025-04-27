@@ -31,6 +31,7 @@
 		B0A012072DBE720400BBD4DF /* ProfileOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A012062DBE720400BBD4DF /* ProfileOptions.swift */; };
 		B0A0120A2DBE7BC100BBD4DF /* BottomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A012092DBE7BC100BBD4DF /* BottomTabBarView.swift */; };
 		B0A0120C2DBE7BD000BBD4DF /* BottomTabBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0A0120B2DBE7BD000BBD4DF /* BottomTabBarView.xib */; };
+		B0A0120E2DBEA11B00BBD4DF /* PopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A0120D2DBEA11B00BBD4DF /* PopUpVC.swift */; };
 		E13DE1D42DB3D1F400ECDD8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13DE1CA2DB3D1F400ECDD8D /* AppDelegate.swift */; };
 		E13DE1D72DB3D1F400ECDD8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E13DE1CB2DB3D1F400ECDD8D /* Assets.xcassets */; };
 		E13DE1D92DB3D1F400ECDD8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E13DE1CE2DB3D1F400ECDD8D /* LaunchScreen.storyboard */; };
@@ -171,6 +172,7 @@
 		B0A012062DBE720400BBD4DF /* ProfileOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOptions.swift; sourceTree = "<group>"; };
 		B0A012092DBE7BC100BBD4DF /* BottomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTabBarView.swift; sourceTree = "<group>"; };
 		B0A0120B2DBE7BD000BBD4DF /* BottomTabBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomTabBarView.xib; sourceTree = "<group>"; };
+		B0A0120D2DBEA11B00BBD4DF /* PopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpVC.swift; sourceTree = "<group>"; };
 		E13DE1962DB3D1EC00ECDD8D /* SunShineTODO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SunShineTODO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E13DE1AC2DB3D1ED00ECDD8D /* SunShineTODOTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SunShineTODOTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E13DE1B62DB3D1ED00ECDD8D /* SunShineTODOUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SunShineTODOUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -468,6 +470,7 @@
 			isa = PBXGroup;
 			children = (
 				B0A011F12DBE1DDD00BBD4DF /* ThemeButtonView.swift */,
+				B0A0120D2DBEA11B00BBD4DF /* PopUpVC.swift */,
 				B0A011EC2DBE1D6600BBD4DF /* OnboardingView */,
 				B0981B752DB80E170036C795 /* Auth */,
 				B0A011F82DBE368300BBD4DF /* TabBar */,
@@ -1017,6 +1020,7 @@
 				E13DE2202DB3D32A00ECDD8D /* RequestFactoryType.swift in Sources */,
 				E13DE2212DB3D32A00ECDD8D /* APIService.swift in Sources */,
 				E13DE2222DB3D32A00ECDD8D /* APIFailureResponseModel.swift in Sources */,
+				B0A0120E2DBEA11B00BBD4DF /* PopUpVC.swift in Sources */,
 				E13DE2232DB3D32A00ECDD8D /* ResponseHandlerFactory.swift in Sources */,
 				B0A011ED2DBE1D6600BBD4DF /* OnboardingView.swift in Sources */,
 				B0A011EE2DBE1D6600BBD4DF /* OnboardingPagerDataModel.swift in Sources */,

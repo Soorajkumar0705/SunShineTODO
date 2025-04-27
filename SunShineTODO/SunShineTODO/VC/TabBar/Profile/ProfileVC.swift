@@ -30,6 +30,25 @@ class ProfileVC: UIViewController, StoryboardBased {
         tblOptions.clipsToBounds = true
         
         tblOptions.configure(with: ProfileOptions.allCases)
+        tblOptions.didSelectedItem = { [weak self] (indexPath, dataItem, cell) in
+            guard let self else { return }
+            
+            switch dataItem {
+            case .settings:
+                Toast.show("In progress, will bring it to you soon.")
+                
+            case .logout:
+                showLogoutPopUp()
+            }
+            
+        }
+    }
+    
+    private func showLogoutPopUp() {
+        
+        let vc = PopUpVCFactory().make()
+        
+        vc.presentAsChildVCInTabBarVC(in: self, animated: true)
     }
     
 

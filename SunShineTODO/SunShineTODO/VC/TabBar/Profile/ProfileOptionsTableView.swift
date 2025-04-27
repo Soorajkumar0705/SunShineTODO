@@ -15,6 +15,7 @@ class ProfileOptionsTableView : UITableView, UITableViewDataSource, UITableViewD
     
     
     var configureCell: CellConfigureType?
+    var didSelectedItem : CellConfigureType?
     
     var dataItems : [DataItemType]  = []{
         didSet{
@@ -66,6 +67,11 @@ class ProfileOptionsTableView : UITableView, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        didSelectedItem?(
+            indexPath,
+            dataItems[indexPath.row],
+            tableView.cellForRow(at: indexPath) as! CELLType
+        )
         
         print(#function)
     }
