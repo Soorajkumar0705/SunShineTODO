@@ -16,6 +16,7 @@ class AuthenticationHandlerFactory {
 
 class AuthenticationHandler : LaunchFlow {
 
+    @Storage(key: .isOnboardingVisited, defaultValue: false) var isOnboardingVisited: Bool
 
     @Storage(key: .isSignIn, defaultValue: false) var isSignedIn: Bool
     @Storage(key: .sessionToken, defaultValue: "") var sessionToken: String

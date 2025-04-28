@@ -27,7 +27,7 @@ class PopUpVCFactory {
         let vc = PopUpVC.instantiate(from: .tabBar)
         
         if let title{
-            vc.title = title
+            vc.popUpTitle = title
         }
         
         if let message{

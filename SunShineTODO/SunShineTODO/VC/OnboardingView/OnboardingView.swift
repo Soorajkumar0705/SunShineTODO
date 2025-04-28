@@ -53,15 +53,15 @@ struct OnboardingView: View {
                 VStack(spacing: 16, content: {
                     
                     Button(action: {
+                        AuthenticationHandler.shared.isOnboardingVisited = true
                         let vc = SignUpORSignInScreenFactory().makeVC(authType: .signUp)
                         AppNavigationCoordinator.shared.setRootVC(vc)
-                        
                     }, label: {
                         ThemeButtonView(title: "Sign Up")
                     })
                     
                     Button(action: {
-                        
+                        AuthenticationHandler.shared.isOnboardingVisited = true
                         let vc = SignUpORSignInScreenFactory().makeVC(authType: .signIn)
                         AppNavigationCoordinator.shared.setRootVC(vc)
                         

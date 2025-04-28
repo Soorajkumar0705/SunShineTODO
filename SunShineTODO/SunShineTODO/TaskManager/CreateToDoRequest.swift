@@ -21,7 +21,7 @@ struct CreateToDoRequest : JsonRequestBodyType{
         
         json["title"] = title
         json["description"] = taskDetails
-//        json["dueDate"] = dueDate.timeIntervalSince1970
+        json["due_date"] = dueDate.formatted()
         json["priority"] = priority.rawValue
         json["isFavorite"] = isFavorite
         

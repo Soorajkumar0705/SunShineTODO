@@ -46,7 +46,7 @@ class AddTaskVC : UIViewController, StoryboardBased {
             guard let self else { return }
             removeChildVCWithAnimation()
         })
-        
+        _=builder?.setTaskPriority(.low) // default selection
     }
     
     @IBAction private func onClickBtnSelectDate(_ sender: UIButton) {
@@ -109,6 +109,7 @@ extension AddTaskVC {
         if taskDetailsPlaceholder != txtDescription.text{
             _=builder?.setTaskDetails(txtDescription.text)
         }
+        
         taskManager?.createToDoTask(task: builder!)
 
     }

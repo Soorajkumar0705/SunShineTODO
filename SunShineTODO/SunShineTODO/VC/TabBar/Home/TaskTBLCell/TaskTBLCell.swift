@@ -48,9 +48,14 @@ class TaskTBLCell: UITableViewCell, NibReusable {
         }
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "d MMMM yyyy, h:mm a"
-        let formattedDate = formatter.string(from: Date.distantFuture)
-        lblDueDate.text = "Pending"// formattedDate
+        formatter.dateFormat = "d/M/yyyy, h:mm a"
+        
+        if let date = formatter.date(from: dataItem.dueDate) {
+            formatter.dateFormat = "MMM d, yyyy, h:mm a"
+            let dateString = formatter.string(from: date)
+            
+            lblDueDate.text = dateString
+        }
         
         btnFavUnfavTasks.setImage(
             dataItem.isFavorite.isTrue()
@@ -59,9 +64,9 @@ class TaskTBLCell: UITableViewCell, NibReusable {
             for: .normal
         )
         
-        if dataItem?.isCompleted?.isTrue() == true{
+        if dataItem?.isCompleted.isTrue() == true{
             lblPriority.text = "Completed"
-            lblPriority.superview?.backgroundColor = .systemGreen
+            lblPriority.superview?.backgroundColor = ._7_F_3_DFF
         }else{
             
             lblPriority.text = dataItem.priority.title
@@ -69,7 +74,7 @@ class TaskTBLCell: UITableViewCell, NibReusable {
             switch dataItem.priority {
             case .high: UIColor.systemRed.withAlphaComponent(0.8)
             case .medium: UIColor.systemOrange.withAlphaComponent(0.8)
-            case .low: UIColor.systemYellow.withAlphaComponent(0.8)
+            case .low: UIColor.systemGreen
             }
             
         }

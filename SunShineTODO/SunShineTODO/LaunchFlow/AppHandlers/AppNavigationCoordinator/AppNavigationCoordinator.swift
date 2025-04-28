@@ -68,9 +68,13 @@ class AppNavigationCoordinator : AppNavigationCoordinatorType{
         let vc : UIViewController =
         
         if AuthenticationHandler.shared.isSignedIn {
-            HomeVC.instantiate(from: .main)
-        }else{
             TabBarVCFactory().makeVC()
+        }else{
+            if AuthenticationHandler.shared.isOnboardingVisited == false{
+                OnboardingView().toVC()
+            }else {
+                SignUpORSignInScreenFactory().makeVC(authType: .signIn)
+            }
         }
         
         setRootVC(vc)

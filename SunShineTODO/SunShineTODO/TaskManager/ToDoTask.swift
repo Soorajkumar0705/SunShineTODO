@@ -12,8 +12,9 @@ struct ToDoTask: CodableResponseModel {
     var userId: Int
     var title, description : String
     var priority : TaskPriority
-    var isCompleted: Int? = 0
+    var isCompleted: Int = 0
     var isFavorite: Int = 0
+    var dueDate: String
     var updatedAt, createdAt: String
 
     enum CodingKeys: String, CodingKey {
@@ -23,6 +24,8 @@ struct ToDoTask: CodableResponseModel {
         
         case isCompleted = "isCompleted"
         case isFavorite = "isFavorite"
+        
+        case dueDate = "due_date"
         
         case updatedAt = "updated_at"
         case createdAt = "created_at"

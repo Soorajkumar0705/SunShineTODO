@@ -5,6 +5,8 @@
 //  Created by sooraj kahar on 26/04/25.
 //
 
+import Foundation
+
 
 struct CreateToDoResponseModel: CodableResponseModel {
     
@@ -29,6 +31,7 @@ struct CreateToDoResponseModel: CodableResponseModel {
             title: title,
             description: description,
             priority: priority,
+            dueDate: Date.now.formatted(),
             updatedAt: updatedAt,
             createdAt: createdAt
         )

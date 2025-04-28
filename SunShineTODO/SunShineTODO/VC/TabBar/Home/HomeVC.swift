@@ -196,25 +196,20 @@ extension HomeVC {
         let actionSheet = UIAlertController(title: "More Option", message: nil, preferredStyle: .actionSheet)
 
         actionSheet.addAction(UIAlertAction(
-            title: "Mark as \((selectedTaskData.isCompleted?.isTrue() == true ) ? "Uncomplete" : "Complete")",
+            title: "Mark as \((selectedTaskData.isCompleted.isTrue() == true ) ? "Uncomplete" : "Complete")",
             style: .default, handler: { [weak self] _ in
             print("Mark as complete selected")
             
                 self?.taskManager.markCompleteToDoTask(
                     taskId: selectedTaskData.id,
-                    isCompleted: (selectedTaskData.isCompleted?.isTrue() == true ) ? false : true
+                    isCompleted: (selectedTaskData.isCompleted.isTrue() == true ) ? false : true
                 )
 
         }))
 
         actionSheet.addAction(UIAlertAction(title: "Delete", style: .default, handler: { [weak self] _ in
-            
-            if let self,
-               let selectedIndexPath = tblTasks.selectedIndexPath {
-                let taskData = taskManager.toDoList[selectedIndexPath.row]
-                taskManager.deleteToDoTask(taskId: taskData.id)
-            }
-            
+            guard let self else { return }
+            showDeleteAlert()
             print("delete selected")
         }))
 
@@ -230,4 +225,29 @@ extension HomeVC {
         self.present(actionSheet, animated: true, completion: nil)
 
     }
+    
+    
+    private func showDeleteAlert() {
+        let vc = PopUpVCFactory()
+            .setTitle("Delete?")
+            .setMessage("Are you sure, you want to delete this task?")
+            .make()
+        
+        vc.onClickBtnNo = { [weak self] in
+            guard let _ = self else { return }
+        }
+        
+        vc.onClickBtnYes = { [weak self] in
+            guard let self,
+                  let selectedIndexPath = tblTasks.selectedIndexPath
+            else { return }
+            
+            let taskData = taskManager.toDoList[selectedIndexPath.row]
+            taskManager.deleteToDoTask(taskId: taskData.id)
+        }
+        
+        vc.presentAsChildVCInTabBarVC(in: self, animated: true)
+        
+    }
+    
 }

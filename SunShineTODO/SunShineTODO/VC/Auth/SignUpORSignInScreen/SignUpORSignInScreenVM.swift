@@ -88,7 +88,7 @@ class SignUpORSignInScreenVM : NSObject, ObservableObject {
                         AuthenticationHandler.shared.sessionToken = apiResponse.data?.token ?? "-111"
                         
                         DispatchQueue.main.async {
-                            HomeVC.instantiate(from: .main).rootVC()
+                            TabBarVCFactory().makeVC().rootVC()
                         }
                         
                     }else{
