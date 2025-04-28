@@ -48,6 +48,18 @@ class ProfileVC: UIViewController, StoryboardBased {
         
         let vc = PopUpVCFactory().make()
         
+        vc.onClickBtnNo = { [weak self] in
+            guard let _ = self else { return }
+            
+        }
+        
+        vc.onClickBtnYes = { [weak self] in
+            guard let _ = self else { return }
+            AuthenticationHandler.shared.removeAuthenticationDetails()
+            let vc = SignUpORSignInScreenFactory().makeVC(authType: .signIn)
+            AppNavigationCoordinator.shared.setRootVC(vc)
+        }
+        
         vc.presentAsChildVCInTabBarVC(in: self, animated: true)
     }
     

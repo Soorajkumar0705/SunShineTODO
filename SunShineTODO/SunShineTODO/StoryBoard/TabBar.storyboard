@@ -849,28 +849,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ym9-Ak-1vh" customClass="CornerRadiusView" customModule="SunShineTODO" customModuleProvider="target">
-                                <rect key="frame" x="40" y="331.33333333333331" width="313" height="189.33333333333331"/>
+                                <rect key="frame" x="30" y="331.33333333333331" width="333" height="189.33333333333331"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logout?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N3b-rE-m5O">
-                                        <rect key="frame" x="119.33333333333334" y="25" width="74.666666666666657" height="24"/>
+                                        <rect key="frame" x="129.33333333333334" y="25" width="74.666666666666657" height="24"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure do you wanna logout?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cC1-jU-BxY">
-                                        <rect key="frame" x="10" y="69" width="293" height="20.333333333333329"/>
+                                        <rect key="frame" x="10" y="69" width="313" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" name="91919F"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Ui8-5c-6nK">
-                                        <rect key="frame" x="20" y="124.33333333333337" width="273" height="45"/>
+                                        <rect key="frame" x="20" y="124.33333333333337" width="293" height="45"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tdL-xf-Kvt" customClass="CornerRadiusView" customModule="SunShineTODO" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="126.66666666666667" height="45"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="136.66666666666666" height="45"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gK8-YE-DXf">
-                                                        <rect key="frame" x="0.0" y="0.0" width="126.66666666666667" height="45"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="136.66666666666666" height="45"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" name="7F3DFF"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -895,10 +895,10 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RWP-9z-SLl" customClass="CornerRadiusBorderView" customModule="SunShineTODO" customModuleProvider="target">
-                                                <rect key="frame" x="146.66666666666666" y="0.0" width="126.33333333333334" height="45"/>
+                                                <rect key="frame" x="156.66666666666663" y="0.0" width="136.33333333333337" height="45"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ed4-hQ-lao">
-                                                        <rect key="frame" x="0.0" y="0.0" width="126.33333333333333" height="45"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="136.33333333333334" height="45"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="Save"/>
@@ -950,8 +950,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Ym9-Ak-1vh" firstAttribute="centerY" secondItem="qru-9x-N0f" secondAttribute="centerY" id="HZQ-nk-8Su"/>
-                            <constraint firstItem="Ym9-Ak-1vh" firstAttribute="leading" secondItem="Fdh-M0-FuY" secondAttribute="leading" constant="40" id="ZCc-km-1sI"/>
-                            <constraint firstItem="Fdh-M0-FuY" firstAttribute="trailing" secondItem="Ym9-Ak-1vh" secondAttribute="trailing" constant="40" id="uJu-zt-duH"/>
+                            <constraint firstItem="Ym9-Ak-1vh" firstAttribute="leading" secondItem="Fdh-M0-FuY" secondAttribute="leading" constant="30" id="ZCc-km-1sI"/>
+                            <constraint firstItem="Fdh-M0-FuY" firstAttribute="trailing" secondItem="Ym9-Ak-1vh" secondAttribute="trailing" constant="30" id="uJu-zt-duH"/>
                         </constraints>
                     </view>
                     <connections>
